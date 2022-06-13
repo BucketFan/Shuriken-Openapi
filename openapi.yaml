@@ -4,6 +4,86 @@ info:
   version: '1.0'
 servers:
   - url: 'http://localhost:3000'
-paths: {}
+paths:
+  /clubs:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-clubs
+      description: 入会しているクラブ一覧を取得する
+  '/clubs/{id}/channels':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-clubs-id
+      description: クラブに紐付いているチャネル一覧を取得する
+  /channels:
+    post:
+      summary: ''
+      operationId: post-channels
+      responses:
+        '200':
+          description: OK
+      description: チャネルの作成
+  '/channels/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-channels-id
+      description: チャネルに紐付いているコメント一覧を取得する
+    delete:
+      summary: ''
+      operationId: delete-channels-id
+      responses:
+        '200':
+          description: OK
+  /channel_comments:
+    post:
+      summary: ''
+      operationId: post-channel_comments
+      responses:
+        '200':
+          description: OK
+  '/channel_comments/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    patch:
+      summary: ''
+      operationId: patch-channel_comments-id
+      responses:
+        '200':
+          description: OK
+    delete:
+      summary: ''
+      operationId: delete-channel_comments-id
+      responses:
+        '200':
+          description: OK
+  /channel_comments/publish_pre_signed_url:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-channel_comments-publish_pre_signed_url
+      description: ファイルアップロード用のPresignedURLを発行する
 components:
   schemas: {}
