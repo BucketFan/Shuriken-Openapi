@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "doc": "redoc-cli build openapi.yaml -o document.html"
+  },
+  "dependencies": {
+    "redoc-cli": "^0.13.16"
+  }
+}

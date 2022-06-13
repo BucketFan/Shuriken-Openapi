@@ -7,9 +7,12 @@ servers:
 paths:
   /clubs:
     get:
-      summary: Your GET endpoint
-      tags: []
-      responses: {}
+      summary: get club list
+      tags:
+        - club
+      responses:
+        '200':
+          description: OK
       operationId: get-clubs
       description: 入会しているクラブ一覧を取得する
   '/clubs/{id}/channels':
@@ -20,19 +23,24 @@ paths:
         in: path
         required: true
     get:
-      summary: Your GET endpoint
-      tags: []
-      responses: {}
+      summary: get club's channels
+      tags:
+        - club
+      responses:
+        '200':
+          description: OK
       operationId: get-clubs-id
       description: クラブに紐付いているチャネル一覧を取得する
   /channels:
     post:
-      summary: ''
+      summary: create channel
       operationId: post-channels
       responses:
         '200':
           description: OK
       description: チャネルの作成
+      tags:
+        - channel
   '/channels/{id}':
     parameters:
       - schema:
@@ -41,24 +49,31 @@ paths:
         in: path
         required: true
     get:
-      summary: Your GET endpoint
-      tags: []
-      responses: {}
+      summary: get channel
+      tags:
+        - channel
+      responses:
+        '200':
+          description: OK
       operationId: get-channels-id
       description: チャネルに紐付いているコメント一覧を取得する
     delete:
-      summary: ''
+      summary: delete channel
       operationId: delete-channels-id
       responses:
         '200':
           description: OK
+      tags:
+        - channel
   /channel_comments:
     post:
-      summary: ''
+      summary: create channel comment
       operationId: post-channel_comments
       responses:
         '200':
           description: OK
+      tags:
+        - channel_comment
   '/channel_comments/{id}':
     parameters:
       - schema:
@@ -67,23 +82,30 @@ paths:
         in: path
         required: true
     patch:
-      summary: ''
+      summary: update channel comment
       operationId: patch-channel_comments-id
       responses:
         '200':
           description: OK
+      tags:
+        - channel_comment
     delete:
-      summary: ''
+      summary: delete channel comment
       operationId: delete-channel_comments-id
       responses:
         '200':
           description: OK
+      tags:
+        - channel_comment
   /channel_comments/publish_pre_signed_url:
-    get:
-      summary: Your GET endpoint
-      tags: []
-      responses: {}
-      operationId: get-channel_comments-publish_pre_signed_url
+    post:
+      summary: create pre-signed URL
+      operationId: post-channel_comments-publish_pre_signed_url
+      responses:
+        '200':
+          description: OK
+      tags:
+        - channel_comment
       description: ファイルアップロード用のPresignedURLを発行する
 components:
   schemas: {}
