@@ -1,0 +1,9 @@
+openapi: 3.0.2
+info:
+  title: shriken_openapi
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths: {}
+components:
+  schemas: {}
