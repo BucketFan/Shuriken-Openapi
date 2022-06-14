@@ -23,19 +23,21 @@ paths:
                     items:
                       type: object
                       properties:
-                        plan:
-                          type: object
-                          properties:
-                            id:
-                              type: integer
-                            image:
-                              type: string
-                              nullable: true
-                            info:
-                              type: string
-                              nullable: true
-                            name:
-                              type: string
+                        plans:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: integer
+                              name:
+                                type: string
+                              info:
+                                type: string
+                                nullable: true
+                              image:
+                                type: string
+                                nullable: true
                         id:
                           type: integer
                         slug:
@@ -205,17 +207,6 @@ paths:
                             lastCommentDateTime:
                               type: string
                               description: '2022-06-07T14:59:57+09:00'
-                        isRead:
-                          type: boolean
-                        isDeleted:
-                          type: boolean
-                        deletedAt:
-                          type: string
-                          nullable: true
-                        createdAt:
-                          type: string
-                        updatedAt:
-                          type: string
                         reactions:
                           type: array
                           items:
@@ -234,6 +225,17 @@ paths:
                                 type: string
                               counts:
                                 type: integer
+                        isRead:
+                          type: boolean
+                        isDeleted:
+                          type: boolean
+                        deletedAt:
+                          type: string
+                          nullable: true
+                        createdAt:
+                          type: string
+                        updatedAt:
+                          type: string
       operationId: get-channels-id
       description: チャネルに紐付いているコメント一覧を取得する
     delete:
