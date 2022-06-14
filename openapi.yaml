@@ -17,9 +17,39 @@ paths:
             application/json:
               schema:
                 type: object
-                properties: {}
+                properties:
+                  clubs:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        plan:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                            image:
+                              type: string
+                            info:
+                              type: string
+                            name:
+                              type: string
+                        id:
+                          type: integer
+                        slug:
+                          type: string
+                        name:
+                          type: string
+                        clubColor:
+                          type: string
+                        icon:
+                          type: string
       operationId: get-clubs
       description: 入会しているクラブ一覧を取得する
+      parameters:
+        - schema:
+            type: string
+          in: header
   '/clubs/{id}/channels':
     parameters:
       - schema:
