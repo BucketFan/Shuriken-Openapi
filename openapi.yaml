@@ -30,8 +30,10 @@ paths:
                               type: integer
                             image:
                               type: string
+                              nullable: true
                             info:
                               type: string
+                              nullable: true
                             name:
                               type: string
                         id:
@@ -44,6 +46,7 @@ paths:
                           type: string
                         icon:
                           type: string
+                          nullable: true
       operationId: get-clubs
       description: 入会しているクラブ一覧を取得する
       parameters:
@@ -64,6 +67,28 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  channels:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        name:
+                          type: string
+                        description:
+                          type: string
+                        createdAt:
+                          type: string
+                          description: '2022-06-07T14:59:57+09:00'
+                        updatedAt:
+                          type: string
+                          description: '2022-06-07T14:59:57+09:00'
       operationId: get-clubs-id
       description: クラブに紐付いているチャネル一覧を取得する
   /channels:
@@ -76,6 +101,23 @@ paths:
       description: チャネルの作成
       tags:
         - channel
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: チャンネル名
+                description:
+                  type: string
+                  description: チャンネル説明
+                planIds:
+                  type: array
+                  description: 紐付けるPlanID
+                  items:
+                    type: integer
   '/channels/{id}':
     parameters:
       - schema:
