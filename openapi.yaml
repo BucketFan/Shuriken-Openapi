@@ -49,6 +49,67 @@ paths:
                         icon:
                           type: string
                           nullable: true
+              examples:
+                example:
+                  value:
+                    clubs:
+                      - plans:
+                          - id: 0
+                            name: string
+                            info: string
+                            image: string
+                        id: 0
+                        slug: string
+                        name: string
+                        clubColor: string
+                        icon: string
+                my-example:
+                  value:
+                    clubs:
+                      - clubColor: red
+                        icon: /upload/club/1296/1325eed031d6c6a627abd1ff3ec5c295_180_180.jpeg
+                        id: 1296
+                        name: Seira FC Living room
+                        plans:
+                          - id: 1481
+                            image: 'https://fanclove.s3.ap-northeast-1.amazonaws.com/club/plan-image/1296/UZK6XDFI.jpeg'
+                            info: FC限定の内容を一緒に楽しみましょう♪
+                            name: スタンダードプラン
+                        slug: seira-livingroom
+                      - clubColor: red
+                        icon: /img/sample/logo/default.png
+                        id: 1
+                        name: FANCLOVEのファンクラブ
+                        plans:
+                          - id: 1784
+                            image: null
+                            info: 鍵アカサロンを試しに使ってみるためのプランです。入会メリットなどは特にありません。
+                            name: 鍵アカサロン仮利用のためのプラン
+                        slug: fanclove
+                      - clubColor: aqua
+                        icon: 'https://fanclove.s3.ap-northeast-1.amazonaws.com/club/icon/RNBTTOOFI25GTVWJ61KWTMCVTW3CSY.jpeg'
+                        id: 4077
+                        name: 心音ふぁんくラブ
+                        plans:
+                          - id: 5261
+                            image: 'https://fanclove.s3.ap-northeast-1.amazonaws.com/club/plan-image/4077/N44FI231.jpeg'
+                            info: "SNSでは見られない、写真、動画などの投稿が毎日見られる。佐々木心音をより身近に感じられて、応援できるプラン。\r\n\r\n\r\n「最近、SNS疲れをしていませんか？ほっこりするものだけ観たい、と思ったりする時が、癒される方が居てくださるのなら嬉しいな。　by 心音」"
+                            name: 心音☺︎ぷらん
+                        slug: kokone
+                      - clubColor: red
+                        icon: /upload/club/2826/5dc2b130aef8622cc122b64243134963_180_180.jpeg
+                        id: 2826
+                        name: マジシャンけんとのfanclub
+                        plans:
+                          - id: 3594
+                            image: null
+                            info: "レパートリー400を超えラスベガスで修行した私が無料で解説出来ないマジックを解説致します✨\r\n更にこの動画だけでは解らない！となっても大丈夫です。月に１回、時間をとりマンツーマンでレクチャー致します！"
+                            name: マジシャンけんとのfanclub
+                          - id: 3619
+                            image: null
+                            info: "レパートリー400を超えラスベガスで修行した私が無料で解説出来ないマジックを解説致します✨\r\n更にこの動画だけでは解らない！となっても大丈夫です。今後無制限マジックレクチャーをマンツーマンで行います！"
+                            name: AD PREMIUM
+                        slug: magic-kento
       operationId: get-clubs
       description: 入会しているクラブ一覧を取得する
       parameters:
