@@ -98,6 +98,21 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  description:
+                    type: string
+                  planIds:
+                    type: array
+                    items:
+                      type: integer
       description: チャネルの作成
       tags:
         - channel
