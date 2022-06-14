@@ -13,6 +13,11 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
       operationId: get-clubs
       description: 入会しているクラブ一覧を取得する
   '/clubs/{id}/channels':
