@@ -147,6 +147,93 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  description:
+                    type: string
+                  comments:
+                    type:
+                      - string
+                      - array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        content:
+                          type: string
+                          description: コメントの内容
+                        profile:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                            name:
+                              type: string
+                            thumbnail:
+                              type: string
+                              nullable: true
+                            isProfilePublic:
+                              type: boolean
+                        threadInfo:
+                          type: object
+                          nullable: true
+                          properties:
+                            profiles:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  id:
+                                    type: integer
+                                  name:
+                                    type: string
+                                  thumbnail:
+                                    type: string
+                                    nullable: true
+                                  isProfilePublic:
+                                    type: boolean
+                            commentCount:
+                              type: integer
+                            lastCommentDateTime:
+                              type: string
+                              description: '2022-06-07T14:59:57+09:00'
+                        isRead:
+                          type: boolean
+                        isDeleted:
+                          type: boolean
+                        deletedAt:
+                          type: string
+                          nullable: true
+                        createdAt:
+                          type: string
+                        updatedAt:
+                          type: string
+                        reactions:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              profiles:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    id:
+                                      type: integer
+                                    name:
+                                      type: string
+                              image:
+                                type: string
+                              counts:
+                                type: integer
       operationId: get-channels-id
       description: チャネルに紐付いているコメント一覧を取得する
     delete:
