@@ -152,6 +152,53 @@ paths:
                         updatedAt:
                           type: string
                           description: '2022-06-07T14:59:57+09:00'
+                        IsOwner:
+                          type: boolean
+                        isJoinAsUser:
+                          type: boolean
+                        plans:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: integer
+                              name:
+                                type: string
+                              info:
+                                type: string
+                                nullable: true
+                              image:
+                                type: string
+                                nullable: true
+              examples:
+                my-example:
+                  value:
+                    channels:
+                      - IsOwner: false
+                        createdAt: '2022-06-07T14:59:43+09:00'
+                        description: test用のチャンネルです
+                        id: 51
+                        isJoinAsUser: true
+                        name: test
+                        plans:
+                          - id: 1481
+                            image: 'https://fanclove.s3.ap-northeast-1.amazonaws.com/club/plan-image/1296/UZK6XDFI.jpeg'
+                            info: FC限定の内容を一緒に楽しみましょう♪
+                            name: スタンダードプラン
+                        updatedAt: '2022-06-07T14:59:43+09:00'
+                      - IsOwner: false
+                        createdAt: '2022-06-07T14:59:57+09:00'
+                        description: test2用のチャンネルです
+                        id: 52
+                        isJoinAsUser: true
+                        name: test2
+                        plans:
+                          - id: 1481
+                            image: 'https://fanclove.s3.ap-northeast-1.amazonaws.com/club/plan-image/1296/UZK6XDFI.jpeg'
+                            info: FC限定の内容を一緒に楽しみましょう♪
+                            name: スタンダードプラン
+                        updatedAt: '2022-06-07T14:59:57+09:00'
       operationId: get-clubs-id
       description: クラブに紐付いているチャネル一覧を取得する
   /channels:
