@@ -269,9 +269,7 @@ paths:
                   description:
                     type: string
                   comments:
-                    type:
-                      - string
-                      - array
+                    type: array
                     items:
                       type: object
                       properties:
