@@ -4,5 +4,8 @@
   },
   "dependencies": {
     "redoc-cli": "^0.13.16"
+  },
+  "devDependencies": {
+    "prism": "^4.1.2"
   }
 }
