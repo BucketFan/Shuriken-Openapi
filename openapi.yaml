@@ -223,6 +223,16 @@ paths:
                     type: array
                     items:
                       type: integer
+
+              examples:
+                my-example:
+                  value:
+                    id: 101
+                    name: my-exampleチャンネル
+                    description: my-exampleチャンネルの説明
+                    planIds:
+                      - 1481
+                      - 2001
       description: チャネルの作成
       tags:
         - channel
