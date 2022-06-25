@@ -21,48 +21,8 @@ paths:
                   clubs:
                     type: array
                     items:
-                      type: object
-                      properties:
-                        plans:
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              id:
-                                type: integer
-                              name:
-                                type: string
-                              info:
-                                type: string
-                                nullable: true
-                              image:
-                                type: string
-                                nullable: true
-                        id:
-                          type: integer
-                        slug:
-                          type: string
-                        name:
-                          type: string
-                        clubColor:
-                          type: string
-                        icon:
-                          type: string
-                          nullable: true
+                      $ref: '#/components/schemas/Club'
               examples:
-                example:
-                  value:
-                    clubs:
-                      - plans:
-                          - id: 0
-                            name: string
-                            info: string
-                            image: string
-                        id: 0
-                        slug: string
-                        name: string
-                        clubColor: string
-                        icon: string
                 my-example:
                   value:
                     clubs:
@@ -112,10 +72,7 @@ paths:
                         slug: magic-kento
       operationId: get-clubs
       description: 入会しているクラブ一覧を取得する
-      parameters:
-        - schema:
-            type: string
-          in: header
+      parameters: []
   '/clubs/{id}/channels':
     parameters:
       - schema:
@@ -138,39 +95,7 @@ paths:
                   channels:
                     type: array
                     items:
-                      type: object
-                      properties:
-                        id:
-                          type: integer
-                        name:
-                          type: string
-                        description:
-                          type: string
-                        createdAt:
-                          type: string
-                          description: '2022-06-07T14:59:57+09:00'
-                        updatedAt:
-                          type: string
-                          description: '2022-06-07T14:59:57+09:00'
-                        IsOwner:
-                          type: boolean
-                        isJoinAsUser:
-                          type: boolean
-                        plans:
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              id:
-                                type: integer
-                              name:
-                                type: string
-                              info:
-                                type: string
-                                nullable: true
-                              image:
-                                type: string
-                                nullable: true
+                      $ref: '#/components/schemas/Channel'
               examples:
                 my-example:
                   value:
@@ -213,17 +138,8 @@ paths:
               schema:
                 type: object
                 properties:
-                  id:
-                    type: integer
-                  name:
-                    type: string
-                  description:
-                    type: string
-                  planIds:
-                    type: array
-                    items:
-                      type: integer
-
+                  channel:
+                    $ref: '#/components/schemas/Channel'
               examples:
                 my-example:
                   value:
@@ -236,23 +152,6 @@ paths:
       description: チャネルの作成
       tags:
         - channel
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                  description: チャンネル名
-                description:
-                  type: string
-                  description: チャンネル説明
-                planIds:
-                  type: array
-                  description: 紐付けるPlanID
-                  items:
-                    type: integer
   '/channels/{id}':
     parameters:
       - schema:
@@ -260,100 +159,6 @@ paths:
         name: id
         in: path
         required: true
-    get:
-      summary: get channel
-      tags:
-        - channel
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  id:
-                    type: integer
-                  name:
-                    type: string
-                  description:
-                    type: string
-                  comments:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        id:
-                          type: integer
-                        content:
-                          type: string
-                          description: コメントの内容
-                        profile:
-                          type: object
-                          properties:
-                            id:
-                              type: integer
-                            name:
-                              type: string
-                            thumbnail:
-                              type: string
-                              nullable: true
-                            isProfilePublic:
-                              type: boolean
-                        threadInfo:
-                          type: object
-                          nullable: true
-                          properties:
-                            profiles:
-                              type: array
-                              items:
-                                type: object
-                                properties:
-                                  id:
-                                    type: integer
-                                  name:
-                                    type: string
-                                  thumbnail:
-                                    type: string
-                                    nullable: true
-                                  isProfilePublic:
-                                    type: boolean
-                            commentCount:
-                              type: integer
-                            lastCommentDateTime:
-                              type: string
-                              description: '2022-06-07T14:59:57+09:00'
-                        reactions:
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              profiles:
-                                type: array
-                                items:
-                                  type: object
-                                  properties:
-                                    id:
-                                      type: integer
-                                    name:
-                                      type: string
-                              image:
-                                type: string
-                              counts:
-                                type: integer
-                        isRead:
-                          type: boolean
-                        isDeleted:
-                          type: boolean
-                        deletedAt:
-                          type: string
-                          nullable: true
-                        createdAt:
-                          type: string
-                        updatedAt:
-                          type: string
-      operationId: get-channels-id
-      description: チャネルに紐付いているコメント一覧を取得する
     delete:
       summary: delete channel
       operationId: delete-channels-id
@@ -362,6 +167,39 @@ paths:
           description: OK
       tags:
         - channel
+  '/channels/{id}/channel_comments':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    get:
+      summary: get channel comments
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  channelComments:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ChannelComment'
+                  nextCursor:
+                    type: string
+                    nullable: true
+      operationId: get-channels-id-channel_comments
+      tags:
+        - channel_comment
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: cursor
+          description: ページネーション用
   /channel_comments:
     post:
       summary: create channel comment
@@ -369,6 +207,13 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  channelComment:
+                    $ref: '#/components/schemas/ChannelComment'
       tags:
         - channel_comment
   '/channel_comments/{id}':
@@ -384,6 +229,13 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  channelComment:
+                    $ref: '#/components/schemas/ChannelComment'
       tags:
         - channel_comment
     delete:
@@ -405,4 +257,140 @@ paths:
         - channel_comment
       description: ファイルアップロード用のPresignedURLを発行する
 components:
-  schemas: {}
+  schemas:
+    Club:
+      title: Club
+      x-stoplight:
+        id: shvootrff5ayu
+      type: object
+      x-internal: false
+      x-examples: {}
+      properties:
+        id:
+          type: integer
+        slug:
+          type: string
+        name:
+          type: string
+        clubColor:
+          type: string
+        icon:
+          type: string
+          nullable: true
+        plans:
+          type: array
+          items:
+            $ref: '#/components/schemas/Plan'
+    Plan:
+      title: Plan
+      x-stoplight:
+        id: ja941ygq9tcik
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        info:
+          type: string
+          nullable: true
+        image:
+          type: string
+          nullable: true
+    Channel:
+      title: Channel
+      x-stoplight:
+        id: hlury3t0lkij6
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
+        isOwner:
+          type: boolean
+        isJoinAsUser:
+          type: boolean
+        plans:
+          type: array
+          items:
+            $ref: '#/components/schemas/Plan'
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    ChannelComment:
+      title: ChannelComment
+      x-stoplight:
+        id: fwiwjsd39d1o9
+      type: object
+      properties:
+        id:
+          type: integer
+        content:
+          type: string
+        profile:
+          $ref: '#/components/schemas/Profile'
+        isRead:
+          type: boolean
+        isDeleted:
+          type: boolean
+        deletedAt:
+          type: string
+          format: date-time
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        reactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/CommentReaction'
+        threadInfo:
+          type: object
+          properties:
+            profiles:
+              type: array
+              items:
+                $ref: '#/components/schemas/Profile'
+            commentCount:
+              type: integer
+            lastCommentDateTime:
+              type: string
+              format: date-time
+    Profile:
+      title: Profile
+      x-stoplight:
+        id: hwoemua95iq6t
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        thumbnail:
+          type: string
+          nullable: true
+        isProfilePublic:
+          type: boolean
+    CommentReaction:
+      title: CommentReaction
+      x-stoplight:
+        id: 1v12o75wh6474
+      type: object
+      properties:
+        image:
+          type: string
+        counts:
+          type: integer
+        profiles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Profile'
