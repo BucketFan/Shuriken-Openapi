@@ -286,6 +286,33 @@ paths:
                     $ref: '#/components/schemas/ChannelComment'
       tags:
         - channel_comment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                channelId:
+                  type: integer
+                threadStartCommentId:
+                  type: integer
+                  nullable: true
+                profileId:
+                  type: integer
+                content:
+                  type: string
+                files:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      url:
+                        type: string
+                      contentType:
+                        type: string
+                        description: text/plain
+        description: ''
+      description: 投稿するテキスト、ファイルを登録する。
   '/channel_comments/{id}':
     parameters:
       - schema:
