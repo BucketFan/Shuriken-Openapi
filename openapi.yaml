@@ -349,10 +349,33 @@ paths:
       operationId: post-channel_comments-publish_pre_signed_url
       responses:
         '200':
-          description: OK
+          description: PreSignedUrlが、S3アップロード用のURLです。s3Urlが、コメント（ファイル）登録時のfilesのurlに埋め込むURLです。
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  preSignedUrl:
+                    type: string
+                  s3Url:
+                    type: string
       tags:
         - channel_comment
       description: ファイルアップロード用のPresignedURLを発行する
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                channelId:
+                  type: integer
+                fileName:
+                  type: string
+                contentType:
+                  type: string
+                  description: text/plain
+        description: channelIdを送信してほしい理由は、ファイル保存場所のPath生成のためです。contentTypeは無くても良いといえば良いのですが、s3に登録する際のmetadataとして登録します。
 components:
   schemas:
     Club:
