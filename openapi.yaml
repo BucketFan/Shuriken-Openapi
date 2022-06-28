@@ -1,4 +1,6 @@
 openapi: 3.0.2
+x-stoplight:
+  id: m50ba2hb7u5f4
 info:
   title: shriken_openapi
   version: '1.0'
@@ -100,7 +102,7 @@ paths:
                 my-example:
                   value:
                     channels:
-                      - IsOwner: false
+                      - IsOwner: true
                         createdAt: '2022-06-07T14:59:43+09:00'
                         description: test用のチャンネルです
                         id: 51
@@ -112,7 +114,7 @@ paths:
                             info: FC限定の内容を一緒に楽しみましょう♪
                             name: スタンダードプラン
                         updatedAt: '2022-06-07T14:59:43+09:00'
-                      - IsOwner: false
+                      - IsOwner: true
                         createdAt: '2022-06-07T14:59:57+09:00'
                         description: test2用のチャンネルです
                         id: 52
@@ -143,12 +145,19 @@ paths:
               examples:
                 my-example:
                   value:
-                    id: 101
-                    name: my-exampleチャンネル
-                    description: my-exampleチャンネルの説明
-                    planIds:
-                      - 1481
-                      - 2001
+                    channel:
+                      id: 105
+                      name: test!
+                      description: test用のチャンネルです
+                      isOwner: false
+                      isJoinAsUser: true
+                      plans:
+                        - id: 1481
+                          image: 'https://fanclove.s3.ap-northeast-1.amazonaws.com/club/plan-image/1296/UZK6XDFI.jpeg'
+                          info: FC限定の内容を一緒に楽しみましょう♪
+                          name: スタンダードプラン
+                      createdAt: '2022-06-07T14:59:43+09:00'
+                      updatedAt: '2022-06-07T14:59:43+09:00'
       description: チャネルの作成
       tags:
         - channel
@@ -191,6 +200,67 @@ paths:
                   nextCursor:
                     type: string
                     nullable: true
+              examples:
+                my-example:
+                  value:
+                    channelComments:
+                      - id: 1
+                        content: test!!!
+                        profile:
+                          id: 1
+                          name: test_user
+                          thumbnail: 'https://picsum.photos/id/237/200/300'
+                          isProfilePublic: true
+                        isRead: true
+                        isDeleted: false
+                        deletedAt: '2019-08-24T14:15:22Z'
+                        createdAt: '2019-08-24T14:15:22Z'
+                        updatedAt: '2019-08-24T14:15:22Z'
+                        reactions:
+                          - image: string
+                            counts: 0
+                            profiles:
+                              - id: 0
+                                name: string
+                                thumbnail: string
+                                isProfilePublic: true
+                        threadInfo:
+                          profiles:
+                            - id: 2
+                              name: test_user2
+                              thumbnail: 'https://picsum.photos/seed/picsum/200/300'
+                              isProfilePublic: true
+                          commentCount: 0
+                          lastCommentDateTime: '2019-08-24T14:15:22Z'
+                      - id: 2
+                        content: test投稿です！
+                        profile:
+                          id: 2
+                          name: test_user2
+                          thumbnail: 'https://picsum.photos/seed/picsum/200/300'
+                          isProfilePublic: true
+                        isRead: true
+                        isDeleted: false
+                        deletedAt: '2019-08-24T14:15:22Z'
+                        createdAt: '2019-08-24T14:15:22Z'
+                        updatedAt: '2019-08-24T14:15:22Z'
+                        reactions:
+                          - image: string
+                            counts: 0
+                            profiles:
+                              - id: 0
+                                name: string
+                                thumbnail: string
+                                isProfilePublic: true
+                        threadInfo:
+                          profiles:
+                            - id: 1
+                              name: test_user
+                              thumbnail: 'https://picsum.photos/id/237/200/300'
+                              isProfilePublic: true
+                          commentCount: 0
+                          lastCommentDateTime: '2019-08-24T14:15:22Z'
+                    nextCursor: string
       operationId: get-channels-id-channel_comments
       tags:
         - channel_comment
