@@ -1,6 +1,6 @@
 openapi: 3.0.2
 x-stoplight:
-  id: m50ba2hb7u5f4
+  id: shbm2tdeqttj1
 info:
   title: shriken_openapi
   version: '1.0'
@@ -161,6 +161,25 @@ paths:
       description: チャネルの作成
       tags:
         - channel
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                plans:
+                  type: array
+                  items:
+                    $ref: ./openapi.yaml#/components/schemas/Plan
+              required:
+                - name
+                - description
+                - plans
+        description: ''
   '/channels/{id}':
     parameters:
       - schema:
@@ -335,6 +354,15 @@ paths:
                     $ref: '#/components/schemas/ChannelComment'
       tags:
         - channel_comment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                content:
+                  type: string
+        description: ''
     delete:
       summary: delete channel comment
       operationId: delete-channel_comments-id
