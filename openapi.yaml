@@ -249,7 +249,11 @@ paths:
                               name: test_user2
                               thumbnail: 'https://picsum.photos/seed/picsum/200/300'
                               isProfilePublic: true
-                          commentCount: 0
+                            - id: 3
+                              name: test_user3
+                              thumbnail: 'https://picsum.photos/id/1005/200/300'
+                              isProfilePublic: true
+                          commentCount: 2
                           lastCommentDateTime: '2019-08-24T14:15:22Z'
                       - id: 2
                         content: test投稿です！
