@@ -281,8 +281,32 @@ paths:
                               name: test_user
                               thumbnail: 'https://picsum.photos/id/237/200/300'
                               isProfilePublic: true
-                          commentCount: 0
+                          commentCount: 1
                           lastCommentDateTime: '2019-08-24T14:15:22Z'
+                      - id: 3
+                        content: 新しい投稿テストです
+                        profile:
+                          id: 2
+                          name: test_user2
+                          thumbnail: 'https://picsum.photos/seed/picsum/200/300'
+                          isProfilePublic: true
+                        isRead: true
+                        isDeleted: false
+                        deletedAt: '2019-08-24T14:15:22Z'
+                        createdAt: '2019-08-24T14:15:22Z'
+                        updatedAt: '2019-08-24T14:15:22Z'
+                        reactions:
+                          - image: string
+                            counts: 0
+                            profiles:
+                              - id: 0
+                                name: string
+                                thumbnail: string
+                                isProfilePublic: true
+                        threadInfo:
+                          profiles: []
+                          commentCount: 0
+                          lastCommentDateTime: ''
                     nextCursor: string
       operationId: get-channels-id-channel_comments
       tags:
@@ -307,6 +331,46 @@ paths:
                 properties:
                   channelComment:
                     $ref: '#/components/schemas/ChannelComment'
+              examples:
+                my-example:
+                  value:
+                    channelComment:
+                      id: 4
+                      content: てすとで投稿しています！
+                      profile:
+                        id: 103
+                        name: test_user103
+                        thumbnail: 'https://picsum.photos/1002/1/200/300'
+                        isProfilePublic: true
+                      isRead: true
+                      isDeleted: false
+                      deletedAt: '2019-08-24T14:15:22Z'
+                      createdAt: '2019-08-24T14:15:22Z'
+                      updatedAt: '2019-08-24T14:15:22Z'
+                      reactions:
+                        - image: string
+                          counts: 0
+                          profiles:
+                            - id: 0
+                              name: string
+                              thumbnail: string
+                              isProfilePublic: true
+                      threadInfo:
+                        profiles:
+                          - id: 2
+                            name: test_user2
+                            thumbnail: 'https://picsum.photos/seed/picsum/200/300'
+                            isProfilePublic: true
+                          - id: 3
+                            name: test_user3
+                            thumbnail: 'https://picsum.photos/id/1005/200/300'
+                            isProfilePublic: true
+                          - id: 1
+                            name: test_user
+                            thumbnail: 'https://picsum.photos/id/237/200/300'
+                            isProfilePublic: true
+                        commentCount: 2
+                        lastCommentDateTime: '2019-08-24T14:15:22Z'
       tags:
         - channel_comment
       requestBody:
@@ -320,8 +384,6 @@ paths:
                 threadStartCommentId:
                   type: integer
                   nullable: true
-                profileId:
-                  type: integer
                 content:
                   type: string
                 files:
