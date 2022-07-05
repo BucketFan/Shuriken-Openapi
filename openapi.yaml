@@ -1,6 +1,4 @@
 openapi: 3.0.2
-x-stoplight:
-  id: shbm2tdeqttj1
 info:
   title: shriken_openapi
   version: '1.0'
@@ -180,6 +178,93 @@ paths:
                 - description
                 - plans
         description: ''
+  '/channels/{id}/name':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    patch:
+      summary: update channel name
+      operationId: patch-channels-id-name
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  channel:
+                    $ref: '#/components/schemas/Channel'
+              examples:
+                my-example:
+                  value:
+                    channel:
+                      IsOwner: true
+                      createdAt: '2022-06-07T14:59:43+09:00'
+                      description: test用のチャンネルです
+                      id: 51
+                      isJoinAsUser: true
+                      name: 更新されたtest
+                      plans:
+                        - id: 1481
+                          image: 'https://fanclove.s3.ap-northeast-1.amazonaws.com/club/plan-image/1296/UZK6XDFI.jpeg'
+                          info: FC限定の内容を一緒に楽しみましょう♪
+                          name: スタンダードプラン
+                      updatedAt: '2022-06-07T19:59:43+09:00'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+  '/channels/{id}/plans':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    patch:
+      summary: update channel plans
+      operationId: patch-channels-id-name
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  channel:
+                    $ref: '#/components/schemas/Channel'
+              examples:
+                my-example:
+                  value:
+                    channel:
+                      IsOwner: true
+                      createdAt: '2022-06-07T14:59:43+09:00'
+                      description: test用のチャンネルです
+                      id: 51
+                      isJoinAsUser: true
+                      name: 更新されたtest
+                      plans:
+                        - id: 1481
+                          image: 'https://fanclove.s3.ap-northeast-1.amazonaws.com/club/plan-image/1296/UZK6XDFI.jpeg'
+                          info: FC限定の内容を一緒に楽しみましょう♪
+                          name: プレミアムプラン
+                      updatedAt: '2022-06-07T19:59:43+09:00'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Plan'
   '/channels/{id}':
     parameters:
       - schema:
