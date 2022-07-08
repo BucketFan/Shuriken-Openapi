@@ -1,4 +1,6 @@
 openapi: 3.0.2
+x-stoplight:
+  id: pmghd8qd96t0g
 info:
   title: shriken_openapi
   version: '1.0'
@@ -169,14 +171,14 @@ paths:
                   type: string
                 description:
                   type: string
-                plans:
+                planIds:
                   type: array
                   items:
-                    $ref: ./openapi.yaml#/components/schemas/Plan
+                    type: number
               required:
                 - name
                 - description
-                - plans
+                - planIds
         description: ''
   '/channels/{id}/name':
     parameters:
@@ -222,6 +224,8 @@ paths:
               properties:
                 name:
                   type: string
+              required:
+                - name
   '/channels/{id}/plans':
     parameters:
       - schema:
@@ -262,9 +266,14 @@ paths:
         content:
           application/json:
             schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/Plan'
+              type: object
+              properties:
+                planIds:
+                  type: array
+                  items:
+                    type: number
+              required:
+                - planIds
   '/channels/{id}':
     parameters:
       - schema:
