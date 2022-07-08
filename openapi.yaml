@@ -37,6 +37,10 @@ paths:
                             image: 'https://fanclove.s3.ap-northeast-1.amazonaws.com/club/plan-image/1296/UZK6XDFI.jpeg'
                             info: FC限定の内容を一緒に楽しみましょう♪
                             name: スタンダードプラン
+                          - id: 1482
+                            image: 'https://fanclove.s3.ap-northeast-1.amazonaws.com/club/plan-image/1296/UZK6XDFI.jpeg'
+                            info: FC限定の内容を一緒に楽しみましょう♪
+                            name: プレミアムプラン
                         slug: seira-livingroom
                       - clubColor: red
                         icon: /img/sample/logo/default.png
@@ -179,6 +183,13 @@ paths:
                 - name
                 - description
                 - planIds
+            examples:
+              example-1:
+                value:
+                  name: string
+                  description: string
+                  planIds:
+                    - 0
         description: ''
   '/channels/{id}/name':
     parameters:
@@ -226,6 +237,8 @@ paths:
                   type: string
               required:
                 - name
+      tags:
+        - channel
   '/channels/{id}/plans':
     parameters:
       - schema:
@@ -255,9 +268,9 @@ paths:
                       description: test用のチャンネルです
                       id: 51
                       isJoinAsUser: true
-                      name: 更新されたtest
+                      name: test
                       plans:
-                        - id: 1481
+                        - id: 1482
                           image: 'https://fanclove.s3.ap-northeast-1.amazonaws.com/club/plan-image/1296/UZK6XDFI.jpeg'
                           info: FC限定の内容を一緒に楽しみましょう♪
                           name: プレミアムプラン
@@ -274,6 +287,8 @@ paths:
                     type: number
               required:
                 - planIds
+      tags:
+        - channel
   '/channels/{id}':
     parameters:
       - schema:
@@ -547,6 +562,11 @@ paths:
                     type: string
                   s3Url:
                     type: string
+              examples:
+                my-example:
+                  value:
+                    preSignedUrl: 'https://shuriken-dev.s3.ap-northeast-1.amazonaws.com/attached-files/1/abc.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJTLX7NCWRPA2NHBA%2F20220708%2Fap-northeast-1%2Fs3%2Faws4_request&X-Amz-Date=20220708T140416Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&x-id=PutObject&X-Amz-Signature=28d152cf695759fb6a6b86fe858c9ecafd8da298025b24481e2f69b7c153d198'
+                    s3Url: 'https://shuriken-dev.s3.amazonaws.com/attached-files/1/abc.txt'
       tags:
         - channel_comment
       description: ファイルアップロード用のPresignedURLを発行する
