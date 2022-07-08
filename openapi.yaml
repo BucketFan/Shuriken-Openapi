@@ -531,6 +531,41 @@ paths:
           description: OK
       tags:
         - channel_comment
+  '/channel_comments/{id}/thread_comments':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  originalComment:
+                    $ref: '#/components/schemas/ThreadComments'
+                  threadComments:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ThreadComments'
+                  nextCursor:
+                    type: string
+                    nullable: true
+      operationId: get-channel_comments-id-thread-comments
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: cursor
+          description: ページネーション用
+      description: スレッドのコメント一覧取得API
   /channel_comments/publish_pre_signed_url:
     post:
       summary: create pre-signed URL
@@ -641,6 +676,10 @@ components:
           type: integer
         content:
           type: string
+        attachedFiles:
+          type: array
+          items:
+            $ref: '#/components/schemas/AttachedFile'
         profile:
           $ref: '#/components/schemas/Profile'
         isRead:
@@ -673,6 +712,40 @@ components:
             lastCommentDateTime:
               type: string
               format: date-time
+    ThreadComments:
+      title: ThreadComments
+      x-stoplight:
+        id: hj5aiy2641hlj
+      type: object
+      properties:
+        id:
+          type: integer
+        content:
+          type: string
+        attachedFiles:
+          type: array
+          items:
+            $ref: '#/components/schemas/AttachedFile'
+        profile:
+          $ref: '#/components/schemas/Profile'
+        isRead:
+          type: boolean
+        isDeleted:
+          type: boolean
+        deletedAt:
+          type: string
+          format: date-time
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        reactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/CommentReaction'
     Profile:
       title: Profile
       x-stoplight:
@@ -702,3 +775,22 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Profile'
+    AttachedFile:
+      title: AttachedFile
+      x-stoplight:
+        id: 3wu2bqofy2zmb
+      type: object
+      properties:
+        id:
+          type: integer
+        fileType:
+          type: string
+        url:
+          type: string
+        isDeleted:
+          type: boolean
+        deletedAt:
+          type: string
+          nullable: true
+        createdAt:
+          type: string
