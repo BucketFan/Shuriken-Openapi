@@ -566,39 +566,6 @@ paths:
           name: cursor
           description: ページネーション用
       description: スレッドのコメント一覧取得API
-  /channel_comments/publish_pre_signed_url:
-    post:
-      summary: create pre-signed URL
-      operationId: post-channel_comments-publish_pre_signed_url
-      responses:
-        '200':
-          description: PreSignedUrlが、S3アップロード用のURLです。s3Urlが、コメント（ファイル）登録時のfilesのurlに埋め込むURLです。
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  preSignedUrl:
-                    type: string
-                  s3Url:
-                    type: string
-      tags:
-        - channel_comment
-      description: ファイルアップロード用のPresignedURLを発行する
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                channelId:
-                  type: integer
-                fileName:
-                  type: string
-                contentType:
-                  type: string
-                  description: text/plain
-        description: channelIdを送信してほしい理由は、ファイル保存場所のPath生成のためです。contentTypeは無くても良いといえば良いのですが、s3に登録する際のmetadataとして登録します。
   '/channel_comments/{id}/read':
     parameters:
       - schema:
@@ -624,6 +591,116 @@ paths:
       description: |
         指定したコメントIDを遡って既読する。しかし、スレッド内のメッセージに関しては、既読にしない。なので、スレッドを開いたときに、スレッドの最後のコメントIDに対して、APIを実行してください。
         RequestBodyは無し。
+  /channel_comments/reaction:
+    parameters: []
+    patch:
+      summary: ''
+      operationId: patch-channel_comments-id-reaction
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  comment:
+                    $ref: '#/components/schemas/ThreadComments'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reactionId:
+                  type: integer
+                commentId:
+                  type: integer
+      description: コメントにemojiリアクションする
+  /reactions:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  reactionCategories:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        categoryName:
+                          type: string
+                        reactions:
+                          type: array
+                          items:
+                            $ref: '#/components/schemas/Reaction'
+      operationId: get-reactions
+      description: 絵文字もくは、自作絵文字一覧を取得する
+    post:
+      summary: ''
+      operationId: post-reactions
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  reaction:
+                    $ref: '#/components/schemas/Reaction'
+      description: 自作絵文字を登録する
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                channelId:
+                  type: integer
+                name:
+                  type: string
+                image:
+                  type: string
+        description: ChannelIDを指定するのは、どのクラブが作ったのかを区別するため
+  /publish_pre_signed_url:
+    post:
+      summary: create pre-signed URL
+      operationId: post-channel_comments-publish_pre_signed_url
+      responses:
+        '200':
+          description: PreSignedUrlが、S3アップロード用のURLです。s3Urlが、コメント（ファイル）登録時のfilesのurlに埋め込むURLです。
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  preSignedUrl:
+                    type: string
+                  s3Url:
+                    type: string
+      tags:
+        - channel_comment
+      description: ファイルアップロード用のPresignedURLを発行する
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fileName:
+                  type: string
+                contentType:
+                  type: string
+                  description: text/plain
+        description: contentTypeは無くても良いといえば良いのですが、s3に登録する際のmetadataとして登録します。
+    parameters: []
 components:
   schemas:
     Club:
@@ -741,8 +818,8 @@ components:
             lastCommentDateTime:
               type: string
               format: date-time
-    ThreadComments:
-      title: ThreadComments
+    ThreadComment:
+      title: ThreadComment
       x-stoplight:
         id: hj5aiy2641hlj
       type: object
@@ -790,20 +867,6 @@ components:
           nullable: true
         isProfilePublic:
           type: boolean
-    CommentReaction:
-      title: CommentReaction
-      x-stoplight:
-        id: 1v12o75wh6474
-      type: object
-      properties:
-        image:
-          type: string
-        counts:
-          type: integer
-        profiles:
-          type: array
-          items:
-            $ref: '#/components/schemas/Profile'
     AttachedFile:
       title: AttachedFile
       x-stoplight:
@@ -823,3 +886,30 @@ components:
           nullable: true
         createdAt:
           type: string
+    CommentReaction:
+      title: CommentReaction
+      x-stoplight:
+        id: 1v12o75wh6474
+      type: object
+      properties:
+        reaction:
+          $ref: '#/components/schemas/Reaction'
+        counts:
+          type: integer
+        profiles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Profile'
+    Reaction:
+      title: Reaction
+      x-stoplight:
+        id: 7i4icwmfs5380
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        image:
+          type: string
+          description: 'imageがhttp://では始まってる場合は、URL。始まってない場合は、文字コード'
