@@ -274,6 +274,22 @@ paths:
                     type: number
               required:
                 - planIds
+  '/channels/{id}/typing':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    post:
+      summary: ''
+      operationId: post-channels-id-typing
+      responses:
+        '200':
+          description: OK
+      description: |-
+        「〇〇さんが入力中。。。」を知らせるデータを送る。
+        Request Body と Response Bodyは無しの想定
   '/channels/{id}':
     parameters:
       - schema:
