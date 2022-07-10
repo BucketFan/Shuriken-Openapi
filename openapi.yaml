@@ -599,6 +599,31 @@ paths:
                   type: string
                   description: text/plain
         description: channelIdを送信してほしい理由は、ファイル保存場所のPath生成のためです。contentTypeは無くても良いといえば良いのですが、s3に登録する際のmetadataとして登録します。
+  '/channel_comments/{id}/read':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    patch:
+      summary: ''
+      operationId: patch-channel_comments-id-read
+      responses:
+        '200':
+          description: 指定したチャンネルIDが属しているクラブとチャンネルのレスポンスを返します。
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  club:
+                    $ref: '#/components/schemas/Club'
+                  channel:
+                    $ref: '#/components/schemas/Channel'
+      description: |
+        指定したコメントIDを遡って既読する。しかし、スレッド内のメッセージに関しては、既読にしない。なので、スレッドを開いたときに、スレッドの最後のコメントIDに対して、APIを実行してください。
+        RequestBodyは無し。
 components:
   schemas:
     Club:
@@ -624,6 +649,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Plan'
+        unReadCount:
+          type: integer
     Plan:
       title: Plan
       x-stoplight:
@@ -656,6 +683,8 @@ components:
           type: boolean
         isJoinAsUser:
           type: boolean
+        unReadCount:
+          type: integer
         plans:
           type: array
           items:
