@@ -559,7 +559,7 @@ paths:
       tags: []
       responses:
         '200':
-          description: OK
+          description: nextCursorでページネーションすると、threadCommentsの要素が変わる。originalCommentは基本変わらない。
           content:
             application/json:
               schema:
