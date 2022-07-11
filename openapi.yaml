@@ -1,6 +1,6 @@
 openapi: 3.0.2
 x-stoplight:
-  id: pmghd8qd96t0g
+  id: 2nev8u2vd0uph
 info:
   title: shriken_openapi
   version: '1.0'
@@ -556,7 +556,8 @@ paths:
         required: true
     get:
       summary: Your GET endpoint
-      tags: []
+      tags:
+        - channel_comment
       responses:
         '200':
           description: nextCursorでページネーションすると、threadCommentsの要素が変わる。originalCommentは基本変わらない。
@@ -566,11 +567,11 @@ paths:
                 type: object
                 properties:
                   originalComment:
-                    $ref: '#/components/schemas/ThreadComments'
+                    $ref: '#/components/schemas/ThreadComment'
                   threadComments:
                     type: array
                     items:
-                      $ref: '#/components/schemas/ThreadComments'
+                      $ref: '#/components/schemas/ThreadComment'
                   nextCursor:
                     type: string
                     nullable: true
@@ -621,7 +622,7 @@ paths:
                 type: object
                 properties:
                   comment:
-                    $ref: '#/components/schemas/ThreadComments'
+                    $ref: '#/components/schemas/ThreadComment'
       requestBody:
         content:
           application/json:
