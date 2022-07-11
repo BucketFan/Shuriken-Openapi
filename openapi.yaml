@@ -734,6 +734,33 @@ paths:
                     $ref: '#/components/schemas/Club'
                   channel:
                     $ref: '#/components/schemas/Channel'
+              examples:
+                my-example:
+                  value:
+                    club:
+                      clubColor: red
+                      icon: /upload/club/1296/1325eed031d6c6a627abd1ff3ec5c295_180_180.jpeg
+                      id: 1296
+                      name: Seira FC Living room
+                      plans:
+                        - id: 1481
+                          image: 'https://fanclove.s3.ap-northeast-1.amazonaws.com/club/plan-image/1296/UZK6XDFI.jpeg'
+                          info: FC限定の内容を一緒に楽しみましょう♪
+                          name: スタンダードプラン
+                      slug: seira-livingroom
+                    channel:
+                      IsOwner: true
+                      createdAt: '2022-06-07T14:59:43+09:00'
+                      description: test用のチャンネルです
+                      id: 51
+                      isJoinAsUser: true
+                      name: test
+                      plans:
+                        - id: 1481
+                          image: 'https://fanclove.s3.ap-northeast-1.amazonaws.com/club/plan-image/1296/UZK6XDFI.jpeg'
+                          info: FC限定の内容を一緒に楽しみましょう♪
+                          name: スタンダードプラン
+                      updatedAt: '2022-06-07T14:59:43+09:00'
       description: |
         指定したコメントIDを遡って既読する。しかし、スレッド内のメッセージに関しては、既読にしない。なので、スレッドを開いたときに、スレッドの最後のコメントIDに対して、APIを実行してください。
         RequestBodyは無し。
@@ -786,6 +813,7 @@ paths:
                           type: array
                           items:
                             $ref: '#/components/schemas/Reaction'
+              examples: {}
       operationId: get-reactions
       description: 絵文字もくは、自作絵文字一覧を取得する
     post:
