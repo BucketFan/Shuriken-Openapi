@@ -226,6 +226,8 @@ paths:
                   type: string
               required:
                 - name
+      tags:
+        - channel
   '/channels/{id}/plans':
     parameters:
       - schema:
@@ -274,6 +276,8 @@ paths:
                     type: number
               required:
                 - planIds
+      tags:
+        - channel
   '/channels/{id}/typing':
     parameters:
       - schema:
@@ -290,6 +294,8 @@ paths:
       description: |-
         「〇〇さんが入力中。。。」を知らせるデータを送る。
         Request Body と Response Bodyは無しの想定
+      tags:
+        - channel
   '/channels/{id}':
     parameters:
       - schema:
@@ -591,7 +597,7 @@ paths:
         in: path
         required: true
     get:
-      summary: Your GET endpoint
+      summary: get thread comments
       tags:
         - channel_comment
       responses:
@@ -720,7 +726,7 @@ paths:
         in: path
         required: true
     patch:
-      summary: ''
+      summary: update channel comment read
       operationId: patch-channel_comments-id-read
       responses:
         '200':
@@ -764,6 +770,8 @@ paths:
       description: |
         指定したコメントIDを遡って既読する。しかし、スレッド内のメッセージに関しては、既読にしない。なので、スレッドを開いたときに、スレッドの最後のコメントIDに対して、APIを実行してください。
         RequestBodyは無し。
+      tags:
+        - channel_comment
   /channel_comments/reaction:
     parameters: []
     patch:
@@ -790,10 +798,13 @@ paths:
                 commentId:
                   type: integer
       description: コメントにemojiリアクションする
+      tags:
+        - channel_comment
   /reactions:
     get:
       summary: Your GET endpoint
-      tags: []
+      tags:
+        - reaction
       responses:
         '200':
           description: OK
