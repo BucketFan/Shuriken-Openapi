@@ -615,8 +615,8 @@ paths:
                 my-example:
                   value:
                     originalComment:
-                      id: 0
-                      content: string
+                      id: 1
+                      content: test!!!
                       attachedFiles:
                         - id: 0
                           fileType: string
@@ -625,20 +625,17 @@ paths:
                           deletedAt: string
                           createdAt: string
                       profile:
-                        id: 0
-                        name: string
-                        thumbnail: string
+                        id: 1
+                        name: test_user
+                        thumbnail: 'https://picsum.photos/id/237/200/300'
                         isProfilePublic: true
                       isRead: true
-                      isDeleted: true
+                      isDeleted: false
                       deletedAt: '2019-08-24T14:15:22Z'
                       createdAt: '2019-08-24T14:15:22Z'
                       updatedAt: '2019-08-24T14:15:22Z'
                       reactions:
-                        - reaction:
-                            id: 0
-                            name: string
-                            image: string
+                        - image: string
                           counts: 0
                           profiles:
                             - id: 0
@@ -646,8 +643,8 @@ paths:
                               thumbnail: string
                               isProfilePublic: true
                     threadComments:
-                      - id: 0
-                        content: string
+                      - id: 201
+                        content: スレッドのコメントです！
                         attachedFiles:
                           - id: 0
                             fileType: string
@@ -656,9 +653,39 @@ paths:
                             deletedAt: string
                             createdAt: string
                         profile:
-                          id: 0
-                          name: string
-                          thumbnail: string
+                          id: 2
+                          name: test_user2
+                          thumbnail: 'https://picsum.photos/seed/picsum/200/300'
+                          isProfilePublic: true
+                        isRead: true
+                        isDeleted: true
+                        deletedAt: '2019-08-24T14:15:22Z'
+                        createdAt: '2019-08-24T14:15:22Z'
+                        updatedAt: '2019-08-24T14:15:22Z'
+                        reactions:
+                          - reaction:
+                              id: 0
+                              name: string
+                              image: string
+                            counts: 0
+                            profiles:
+                              - id: 0
+                                name: string
+                                thumbnail: string
+                                isProfilePublic: true
+                      - id: 202
+                        content: 別の方からのスレッドコメント！！
+                        attachedFiles:
+                          - id: 0
+                            fileType: string
+                            url: string
+                            isDeleted: true
+                            deletedAt: string
+                            createdAt: string
+                        profile:
+                          id: 3
+                          name: test_user3
+                          thumbnail: 'https://picsum.photos/id/1005/200/300'
                           isProfilePublic: true
                         isRead: true
                         isDeleted: true
