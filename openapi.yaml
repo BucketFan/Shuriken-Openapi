@@ -1,6 +1,6 @@
 openapi: 3.0.2
 x-stoplight:
-  id: 2nev8u2vd0uph
+  id: dgk6z19rq7mpx
 info:
   title: shriken_openapi
   version: '1.0'
@@ -42,6 +42,7 @@ paths:
                             info: FC限定の内容を一緒に楽しみましょう♪
                             name: プレミアムプラン
                         slug: seira-livingroom
+                        unReadCount: 1
                       - clubColor: red
                         icon: /img/sample/logo/default.png
                         id: 1
@@ -52,6 +53,7 @@ paths:
                             info: 鍵アカサロンを試しに使ってみるためのプランです。入会メリットなどは特にありません。
                             name: 鍵アカサロン仮利用のためのプラン
                         slug: fanclove
+                        unReadCount: 0
                       - clubColor: aqua
                         icon: 'https://fanclove.s3.ap-northeast-1.amazonaws.com/club/icon/RNBTTOOFI25GTVWJ61KWTMCVTW3CSY.jpeg'
                         id: 4077
@@ -62,6 +64,7 @@ paths:
                             info: "SNSでは見られない、写真、動画などの投稿が毎日見られる。佐々木心音をより身近に感じられて、応援できるプラン。\r\n\r\n\r\n「最近、SNS疲れをしていませんか？ほっこりするものだけ観たい、と思ったりする時が、癒される方が居てくださるのなら嬉しいな。　by 心音」"
                             name: 心音☺︎ぷらん
                         slug: kokone
+                        unReadCount: 2
                       - clubColor: red
                         icon: /upload/club/2826/5dc2b130aef8622cc122b64243134963_180_180.jpeg
                         id: 2826
@@ -76,6 +79,7 @@ paths:
                             info: "レパートリー400を超えラスベガスで修行した私が無料で解説出来ないマジックを解説致します✨\r\n更にこの動画だけでは解らない！となっても大丈夫です。今後無制限マジックレクチャーをマンツーマンで行います！"
                             name: AD PREMIUM
                         slug: magic-kento
+                        unReadCount: 0
       operationId: get-clubs
       description: 入会しているクラブ一覧を取得する
       parameters: []
@@ -118,6 +122,7 @@ paths:
                             info: FC限定の内容を一緒に楽しみましょう♪
                             name: スタンダードプラン
                         updatedAt: '2022-06-07T14:59:43+09:00'
+                        unReadCount: 0
                       - IsOwner: true
                         createdAt: '2022-06-07T14:59:57+09:00'
                         description: test2用のチャンネルです
@@ -130,6 +135,7 @@ paths:
                             info: FC限定の内容を一緒に楽しみましょう♪
                             name: スタンダードプラン
                         updatedAt: '2022-06-07T14:59:57+09:00'
+                        unReadCount: 1
       operationId: get-clubs-id
       description: クラブに紐付いているチャネル一覧を取得する
   /channels:
@@ -162,6 +168,7 @@ paths:
                           name: スタンダードプラン
                       createdAt: '2022-06-07T14:59:43+09:00'
                       updatedAt: '2022-06-07T14:59:43+09:00'
+                      unReadCount: 0
       description: チャネルの作成
       tags:
         - channel
@@ -220,6 +227,7 @@ paths:
                           info: FC限定の内容を一緒に楽しみましょう♪
                           name: スタンダードプラン
                       updatedAt: '2022-06-07T19:59:43+09:00'
+                      unReadCount: 0
       requestBody:
         content:
           application/json:
@@ -268,6 +276,7 @@ paths:
                           info: FC限定の内容を一緒に楽しみましょう♪
                           name: プレミアムプラン
                       updatedAt: '2022-06-07T19:59:43+09:00'
+                      unReadCount: 0
       requestBody:
         content:
           application/json:
@@ -345,6 +354,13 @@ paths:
                     channelComments:
                       - id: 1
                         content: test!!!
+                        attachedFiles:
+                          - id: 0
+                            fileType: string
+                            url: string
+                            isDeleted: true
+                            deletedAt: string
+                            createdAt: string
                         profile:
                           id: 1
                           name: test_user
@@ -356,12 +372,19 @@ paths:
                         createdAt: '2019-08-24T14:15:22Z'
                         updatedAt: '2019-08-24T14:15:22Z'
                         reactions:
-                          - image: string
-                            counts: 0
+                          - reaction:
+                              id: 1
+                              name: smail
+                              image: "\U0001F974"
+                            counts: 2
                             profiles:
-                              - id: 0
-                                name: string
-                                thumbnail: string
+                              - id: 10
+                                name: testUser
+                                thumbnail: 'https://picsum.photos/536/354'
+                                isProfilePublic: true
+                              - id: 11
+                                name: 山田さん
+                                thumbnail: 'https://picsum.photos/536/354'
                                 isProfilePublic: true
                         threadInfo:
                           profiles:
@@ -377,6 +400,13 @@ paths:
                           lastCommentDateTime: '2019-08-24T14:15:22Z'
                       - id: 2
                         content: test投稿です！
+                        attachedFiles:
+                          - id: 0
+                            fileType: string
+                            url: string
+                            isDeleted: true
+                            deletedAt: string
+                            createdAt: string
                         profile:
                           id: 2
                           name: test_user2
@@ -388,11 +418,14 @@ paths:
                         createdAt: '2019-08-24T14:15:22Z'
                         updatedAt: '2019-08-24T14:15:22Z'
                         reactions:
-                          - image: string
-                            counts: 0
+                          - reaction:
+                              id: 2
+                              name: star-struck
+                              image: "\U0001F929"
+                            counts: 1
                             profiles:
-                              - id: 0
-                                name: string
+                              - id: 10
+                                name: testUser
                                 thumbnail: string
                                 isProfilePublic: true
                         threadInfo:
@@ -405,6 +438,13 @@ paths:
                           lastCommentDateTime: '2019-08-24T14:15:22Z'
                       - id: 3
                         content: 新しい投稿テストです
+                        attachedFiles:
+                          - id: 0
+                            fileType: string
+                            url: string
+                            isDeleted: true
+                            deletedAt: string
+                            createdAt: string
                         profile:
                           id: 2
                           name: test_user2
@@ -416,17 +456,139 @@ paths:
                         createdAt: '2019-08-24T14:15:22Z'
                         updatedAt: '2019-08-24T14:15:22Z'
                         reactions:
-                          - image: string
-                            counts: 0
+                          - reaction:
+                              id: 3
+                              name: expressionless face
+                              image: "\U0001F611"
+                            counts: 1
                             profiles:
-                              - id: 0
-                                name: string
+                              - id: 10
+                                name: testUser
                                 thumbnail: string
+                                isProfilePublic: true
+                          - reaction:
+                              id: 4
+                              name: rat
+                              image: "\U0001F439"
+                            counts: 2
+                            profiles:
+                              - id: 14
+                                name: 山本さん
+                                thumbnail: 'https://picsum.photos/200/300/?blur'
+                                isProfilePublic: true
+                              - id: 15
+                                name: 山岡さん
+                                thumbnail: 'https://picsum.photos/id/870/200/300?grayscale&blur=2'
+                                isProfilePublic: true
+                          - reaction:
+                              id: 5
+                              name: waving hand
+                              image: "\U0001F44B"
+                            counts: 1
+                            profiles:
+                              - id: 15
+                                name: 山岡さん
+                                thumbnail: 'https://picsum.photos/id/870/200/300?grayscale&blur=2'
                                 isProfilePublic: true
                         threadInfo:
                           profiles: []
                           commentCount: 0
                           lastCommentDateTime: ''
+                      - id: 4
+                        content: "初めまして、山岡です。よろしくお願いいたします\U0001F64F"
+                        attachedFiles:
+                          - id: 1
+                            fileType: image/png
+                            url: 'https://picsum.photos/200/300'
+                            isDeleted: true
+                            deletedAt: '2019-08-24T14:15:22Z'
+                            createdAt: '2019-08-24T14:15:22Z'
+                        profile:
+                          id: 15
+                          name: 山岡さん
+                          thumbnail: 'https://picsum.photos/id/870/200/300?grayscale&blur=2'
+                          isProfilePublic: true
+                        isRead: true
+                        isDeleted: false
+                        deletedAt: '2019-08-24T14:15:22Z'
+                        createdAt: '2019-08-24T14:15:22Z'
+                        updatedAt: '2019-08-24T14:15:22Z'
+                        reactions:
+                          - reaction:
+                              id: 1
+                              name: smail
+                              image: "\U0001F974"
+                            counts: 2
+                            profiles:
+                              - id: 10
+                                name: testUser
+                                thumbnail: 'https://picsum.photos/536/354'
+                                isProfilePublic: true
+                              - id: 11
+                                name: 山田さん
+                                thumbnail: 'https://picsum.photos/536/354'
+                                isProfilePublic: true
+                        threadInfo:
+                          profiles:
+                            - id: 2
+                              name: test_user2
+                              thumbnail: 'https://picsum.photos/seed/picsum/200/300'
+                              isProfilePublic: true
+                            - id: 3
+                              name: test_user3
+                              thumbnail: 'https://picsum.photos/id/1005/200/300'
+                              isProfilePublic: true
+                          commentCount: 2
+                          lastCommentDateTime: '2019-08-24T14:15:22Z'
+                      - id: 5
+                        content: "初めまして、山本と申します。よろしくお願いいたします\U0001F64F"
+                        attachedFiles:
+                          - id: 1
+                            fileType: image/png
+                            url: 'https://picsum.photos/200/300'
+                            isDeleted: true
+                            deletedAt: '2019-08-24T14:15:22Z'
+                            createdAt: '2019-08-24T14:15:22Z'
+                          - id: 2
+                            fileType: image/png
+                            url: 'https://picsum.photos/200/300'
+                            isDeleted: true
+                            deletedAt: '2019-08-24T14:15:22Z'
+                            createdAt: '2019-08-24T14:15:22Z'
+                          - id: 3
+                            fileType: image/png
+                            url: 'https://picsum.photos/200/300'
+                            isDeleted: true
+                            deletedAt: '2019-08-24T14:15:22Z'
+                            createdAt: '2019-08-24T14:15:22Z'
+                          - id: 4
+                            fileType: image/png
+                            url: 'https://picsum.photos/200/300'
+                            isDeleted: true
+                            deletedAt: '2019-08-24T14:15:22Z'
+                            createdAt: '2019-08-24T14:15:22Z'
+                        profile:
+                          id: 14
+                          name: 山本さん
+                          thumbnail: 'https://picsum.photos/200/300/?blur'
+                          isProfilePublic: true
+                        isRead: true
+                        isDeleted: false
+                        deletedAt: '2019-08-24T14:15:22Z'
+                        createdAt: '2019-08-24T14:15:22Z'
+                        updatedAt: '2019-08-24T14:15:22Z'
+                        threadInfo:
+                          profiles:
+                            - id: 2
+                              name: test_user2
+                              thumbnail: 'https://picsum.photos/seed/picsum/200/300'
+                              isProfilePublic: true
+                            - id: 3
+                              name: test_user3
+                              thumbnail: 'https://picsum.photos/id/1005/200/300'
+                              isProfilePublic: true
+                          commentCount: 2
+                          lastCommentDateTime: '2019-08-24T14:15:22Z'
                     nextCursor: string
       operationId: get-channels-id-channel_comments
       tags:
@@ -457,6 +619,13 @@ paths:
                     channelComment:
                       id: 4
                       content: てすとで投稿しています！
+                      attachedFiles:
+                        - id: 0
+                          fileType: string
+                          url: string
+                          isDeleted: true
+                          deletedAt: string
+                          createdAt: string
                       profile:
                         id: 103
                         name: test_user103
@@ -468,7 +637,10 @@ paths:
                       createdAt: '2019-08-24T14:15:22Z'
                       updatedAt: '2019-08-24T14:15:22Z'
                       reactions:
-                        - image: string
+                        - reaction:
+                            id: 0
+                            name: string
+                            image: string
                           counts: 0
                           profiles:
                             - id: 0
@@ -476,20 +648,8 @@ paths:
                               thumbnail: string
                               isProfilePublic: true
                       threadInfo:
-                        profiles:
-                          - id: 2
-                            name: test_user2
-                            thumbnail: 'https://picsum.photos/seed/picsum/200/300'
-                            isProfilePublic: true
-                          - id: 3
-                            name: test_user3
-                            thumbnail: 'https://picsum.photos/id/1005/200/300'
-                            isProfilePublic: true
-                          - id: 1
-                            name: test_user
-                            thumbnail: 'https://picsum.photos/id/237/200/300'
-                            isProfilePublic: true
-                        commentCount: 2
+                        profiles: []
+                        commentCount: 0
                         lastCommentDateTime: '2019-08-24T14:15:22Z'
       tags:
         - channel_comment
@@ -543,7 +703,14 @@ paths:
                   value:
                     channelComment:
                       id: 1
-                      content: 更新されたテキストです
+                      content: コメントが更新されました
+                      attachedFiles:
+                        - id: 0
+                          fileType: string
+                          url: string
+                          isDeleted: true
+                          deletedAt: string
+                          createdAt: string
                       profile:
                         id: 1
                         name: test_user
@@ -555,12 +722,19 @@ paths:
                       createdAt: '2019-08-24T14:15:22Z'
                       updatedAt: '2019-08-24T14:15:22Z'
                       reactions:
-                        - image: string
-                          counts: 0
+                        - reaction:
+                            id: 1
+                            name: smail
+                            image: "\U0001F974"
+                          counts: 2
                           profiles:
-                            - id: 0
-                              name: string
-                              thumbnail: string
+                            - id: 10
+                              name: testUser
+                              thumbnail: 'https://picsum.photos/536/354'
+                              isProfilePublic: true
+                            - id: 11
+                              name: 山田さん
+                              thumbnail: 'https://picsum.photos/536/354'
                               isProfilePublic: true
                       threadInfo:
                         profiles:
@@ -758,6 +932,7 @@ paths:
                           info: FC限定の内容を一緒に楽しみましょう♪
                           name: スタンダードプラン
                       slug: seira-livingroom
+                      unReadCount: 0
                     channel:
                       IsOwner: true
                       createdAt: '2022-06-07T14:59:43+09:00'
@@ -771,6 +946,7 @@ paths:
                           info: FC限定の内容を一緒に楽しみましょう♪
                           name: スタンダードプラン
                       updatedAt: '2022-06-07T14:59:43+09:00'
+                      unReadCount: 0
       description: |
         指定したコメントIDを遡って既読する。しかし、スレッド内のメッセージに関しては、既読にしない。なので、スレッドを開いたときに、スレッドの最後のコメントIDに対して、APIを実行してください。
         RequestBodyは無し。
@@ -779,7 +955,7 @@ paths:
   /channel_comments/reaction:
     parameters: []
     patch:
-      summary: ''
+      summary: update channel comments reaction
       operationId: patch-channel_comments-id-reaction
       responses:
         '200':
@@ -828,7 +1004,15 @@ paths:
                           type: array
                           items:
                             $ref: '#/components/schemas/Reaction'
-              examples: {}
+              examples:
+                example-1:
+                  value:
+                    reactionCategories:
+                      - categoryName: People & Body
+                        reactions:
+                          - id: 102
+                            name: original stamp
+                            image: 'https://picsum.photos/200/300'
       operationId: get-reactions
       description: 絵文字もくは、自作絵文字一覧を取得する
     post:
@@ -1107,3 +1291,4 @@ components:
         image:
           type: string
           description: 'imageがhttp://では始まってる場合は、URL。始まってない場合は、文字コード'
+      description: ''
