@@ -1095,6 +1095,8 @@ paths:
                 image:
                   type: string
         description: ChannelIDを指定するのは、どのクラブが作ったのかを区別するため
+      tags:
+        - reaction
   /publish_pre_signed_url:
     post:
       summary: create pre-signed URL
