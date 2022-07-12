@@ -967,6 +967,52 @@ paths:
                 properties:
                   comment:
                     $ref: '#/components/schemas/ThreadComment'
+              examples:
+                my-example:
+                  value:
+                    comment:
+                      id: 1
+                      content: test!!!
+                      attachedFiles:
+                        - id: 0
+                          fileType: string
+                          url: string
+                          isDeleted: true
+                          deletedAt: string
+                          createdAt: string
+                      profile:
+                        id: 1
+                        name: test_user
+                        thumbnail: 'https://picsum.photos/id/237/200/300'
+                        isProfilePublic: true
+                      isRead: true
+                      isDeleted: false
+                      deletedAt: '2019-08-24T14:15:22Z'
+                      createdAt: '2019-08-24T14:15:22Z'
+                      updatedAt: '2019-08-24T14:15:22Z'
+                      reactions:
+                        - reaction:
+                            id: 1
+                            name: smail
+                            image: "\U0001F974"
+                          counts: 1
+                          profiles:
+                            - id: 10
+                              name: testUser
+                              thumbnail: 'https://picsum.photos/536/354'
+                              isProfilePublic: true
+                      threadInfo:
+                        profiles:
+                          - id: 2
+                            name: test_user2
+                            thumbnail: 'https://picsum.photos/seed/picsum/200/300'
+                            isProfilePublic: true
+                          - id: 3
+                            name: test_user3
+                            thumbnail: 'https://picsum.photos/id/1005/200/300'
+                            isProfilePublic: true
+                        commentCount: 2
+                        lastCommentDateTime: '2019-08-24T14:15:22Z'
       requestBody:
         content:
           application/json:
@@ -982,7 +1028,7 @@ paths:
         - channel_comment
   /reactions:
     get:
-      summary: Your GET endpoint
+      summary: get reactions
       tags:
         - reaction
       responses:
@@ -1005,7 +1051,7 @@ paths:
                           items:
                             $ref: '#/components/schemas/Reaction'
               examples:
-                example-1:
+                my-example:
                   value:
                     reactionCategories:
                       - categoryName: People & Body
@@ -1016,7 +1062,7 @@ paths:
       operationId: get-reactions
       description: 絵文字もくは、自作絵文字一覧を取得する
     post:
-      summary: ''
+      summary: create reaction
       operationId: post-reactions
       responses:
         '200':
@@ -1028,6 +1074,13 @@ paths:
                 properties:
                   reaction:
                     $ref: '#/components/schemas/Reaction'
+              examples:
+                my-example:
+                  value:
+                    reaction:
+                      id: 112
+                      name: cry-face
+                      image: 'https://picsum.photos/200/300'
       description: 自作絵文字を登録する
       requestBody:
         content:
