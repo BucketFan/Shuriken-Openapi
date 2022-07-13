@@ -1,6 +1,6 @@
 openapi: 3.0.2
 x-stoplight:
-  id: dgk6z19rq7mpx
+  id: 7kogg5hiht4jz
 info:
   title: shriken_openapi
   version: '1.0'
@@ -780,18 +780,18 @@ paths:
         - channel_comment
       responses:
         '200':
-          description: nextCursorでページネーションすると、threadCommentsの要素が変わる。originalCommentは基本変わらない。
+          description: nextCursorでページネーションすると、threadCommentsの要素が変わる。originalCommentは基本変わらない。またスレッドのコメントのため、ChannelCommentにあるthreadInfoは返ってこない
           content:
             application/json:
               schema:
                 type: object
                 properties:
                   originalComment:
-                    $ref: '#/components/schemas/ThreadComment'
+                    $ref: '#/components/schemas/ChannelComment'
                   threadComments:
                     type: array
                     items:
-                      $ref: '#/components/schemas/ThreadComment'
+                      $ref: '#/components/schemas/ChannelComment'
                   nextCursor:
                     type: string
                     nullable: true
@@ -1251,40 +1251,6 @@ components:
             lastCommentDateTime:
               type: string
               format: date-time
-    ThreadComment:
-      title: ThreadComment
-      x-stoplight:
-        id: hj5aiy2641hlj
-      type: object
-      properties:
-        id:
-          type: integer
-        content:
-          type: string
-        attachedFiles:
-          type: array
-          items:
-            $ref: '#/components/schemas/AttachedFile'
-        profile:
-          $ref: '#/components/schemas/Profile'
-        isRead:
-          type: boolean
-        isDeleted:
-          type: boolean
-        deletedAt:
-          type: string
-          format: date-time
-          nullable: true
-        createdAt:
-          type: string
-          format: date-time
-        updatedAt:
-          type: string
-          format: date-time
-        reactions:
-          type: array
-          items:
-            $ref: '#/components/schemas/CommentReaction'
     Profile:
       title: Profile
       x-stoplight:
