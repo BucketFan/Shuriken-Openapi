@@ -1241,6 +1241,7 @@ components:
             $ref: '#/components/schemas/CommentReaction'
         threadInfo:
           type: object
+          nullable: true
           properties:
             profiles:
               type: array
