@@ -324,7 +324,7 @@ paths:
           description: OK
       tags:
         - channel
-  '/channels/{id}/channel_comments':
+  '/channels/{id}/comments':
     parameters:
       - schema:
           type: string
@@ -1355,8 +1355,6 @@ components:
       properties:
         reaction:
           $ref: '#/components/schemas/Reaction'
-        counts:
-          type: integer
         profiles:
           type: array
           items:
