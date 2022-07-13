@@ -995,6 +995,20 @@ paths:
                             id: 1
                             name: smail
                             image: "\U0001F974"
+                          counts: 2
+                          profiles:
+                            - id: 10
+                              name: testUser
+                              thumbnail: 'https://picsum.photos/536/354'
+                              isProfilePublic: true
+                            - id: 11
+                              name: 山田さん
+                              thumbnail: 'https://picsum.photos/536/354'
+                              isProfilePublic: true
+                        - reaction:
+                            id: 208
+                            image: "\U0001F44D"
+                            name: thumbs up
                           counts: 1
                           profiles:
                             - id: 10
@@ -1054,11 +1068,58 @@ paths:
                 my-example:
                   value:
                     reactionCategories:
-                      - categoryName: People & Body
+                      - categoryName: スマイリー ＆ 人
                         reactions:
-                          - id: 102
-                            name: original stamp
-                            image: 'https://picsum.photos/200/300'
+                          - id: 202
+                            image: "\U0001F600"
+                            name: grinning face
+                          - id: 203
+                            image: "\U0001F923"
+                            name: rolling on the floor laughing
+                          - id: 204
+                            image: "\U0001F602"
+                            name: face with tears of joy
+                          - id: 205
+                            image: "\U0001F607"
+                            name: smiling face with halo
+                          - id: 206
+                            image: "\U0001F914"
+                            name: thinking face
+                          - id: 207
+                            image: "\U0001F636"
+                            name: face without mouth
+                          - id: 208
+                            image: "\U0001F44D"
+                            name: thumbs up
+                          - id: 209
+                            image: "\U0001F447"
+                            name: backhand index pointing down
+                          - id: 210
+                            image: "\U0001F44F"
+                            name: clapping hands
+                          - id: 211
+                            image: "\U0001F64C"
+                            name: raising hands
+                          - id: 212
+                            image: "\U0001F64F"
+                            name: folded hands
+                          - id: 213
+                            image: "\U0001F64B‍♂️"
+                            name: man raising hand
+                      - categoryName: 動物 ＆ 自然
+                        reactions:
+                          - id: 214
+                            image: "\U0001F981"
+                            name: lion
+                          - id: 215
+                            image: "\U0001F984"
+                            name: unicorn
+                          - id: 216
+                            image: "\U0001F402"
+                            name: ox
+                          - id: 217
+                            image: "\U0001F437"
+                            name: pig face
       operationId: get-reactions
       description: 絵文字もくは、自作絵文字一覧を取得する
     post:
