@@ -966,7 +966,7 @@ paths:
                 type: object
                 properties:
                   comment:
-                    $ref: '#/components/schemas/ThreadComment'
+                    $ref: '#/components/schemas/ChannelComment'
               examples:
                 my-example:
                   value:
