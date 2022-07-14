@@ -1121,7 +1121,7 @@ paths:
                             image: "\U0001F437"
                             name: pig face
       operationId: get-reactions
-      description: 絵文字もくは、自作絵文字一覧を取得する
+      description: 普通の絵文字一覧を取得する（クラブ毎の自作絵文字と、特定のユーザがよく使う絵文字以外）
     post:
       summary: create reaction
       operationId: post-reactions
