@@ -952,8 +952,13 @@ paths:
         RequestBodyは無し。
       tags:
         - channel_comment
-  /channel_comments/reaction:
-    parameters: []
+  '/channel_comments/{id}/reaction':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
     patch:
       summary: update channel comments reaction
       operationId: patch-channel_comments-id-reaction
@@ -965,8 +970,8 @@ paths:
               schema:
                 type: object
                 properties:
-                  comment:
-                    $ref: '#/components/schemas/ChannelComment'
+                  commentReaction:
+                    $ref: '#/components/schemas/CommentReaction'
               examples:
                 my-example:
                   value:
@@ -1035,9 +1040,7 @@ paths:
               properties:
                 reactionId:
                   type: integer
-                commentId:
-                  type: integer
-      description: コメントにemojiリアクションする
+      description: コメントにemojiリアクションする。もしくは、リアクションを消す。つまりトグルスイッチになっている。
       tags:
         - channel_comment
   /reactions:
