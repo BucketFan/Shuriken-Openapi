@@ -490,10 +490,7 @@ paths:
                                 name: 山岡さん
                                 thumbnail: 'https://picsum.photos/id/870/200/300?grayscale&blur=2'
                                 isProfilePublic: true
-                        threadInfo:
-                          profiles: []
-                          commentCount: 0
-                          lastCommentDateTime: ''
+                        threadInfo: null
                       - id: 4
                         content: "初めまして、山岡です。よろしくお願いいたします\U0001F64F"
                         attachedFiles:
@@ -648,7 +645,6 @@ paths:
                         deletedAt: '2019-08-24T14:15:22Z'
                         createdAt: '2019-08-24T14:15:22Z'
                         updatedAt: '2019-08-24T14:15:22Z'
-                        reactions: []
                         threadInfo: null
                     nextCursor: string
       operationId: get-channels-id-channel_comments
@@ -880,23 +876,24 @@ paths:
                       createdAt: '2019-08-24T14:15:22Z'
                       updatedAt: '2019-08-24T14:15:22Z'
                       reactions:
-                        - image: string
-                          counts: 0
+                        - reaction:
+                            id: 1
+                            name: smail
+                            image: "\U0001F974"
+                          counts: 2
                           profiles:
-                            - id: 0
-                              name: string
-                              thumbnail: string
+                            - id: 10
+                              name: testUser
+                              thumbnail: 'https://picsum.photos/536/354'
+                              isProfilePublic: true
+                            - id: 11
+                              name: 山田さん
+                              thumbnail: 'https://picsum.photos/536/354'
                               isProfilePublic: true
                     threadComments:
-                      - id: 201
-                        content: スレッドのコメントです！
-                        attachedFiles:
-                          - id: 0
-                            fileType: string
-                            url: string
-                            isDeleted: true
-                            deletedAt: string
-                            createdAt: string
+                      - id: 1
+                        content: スレッドのコメントです
+                        attachedFiles: []
                         profile:
                           id: 2
                           name: test_user2
@@ -907,19 +904,8 @@ paths:
                         deletedAt: '2019-08-24T14:15:22Z'
                         createdAt: '2019-08-24T14:15:22Z'
                         updatedAt: '2019-08-24T14:15:22Z'
-                        reactions:
-                          - reaction:
-                              id: 0
-                              name: string
-                              image: string
-                            counts: 0
-                            profiles:
-                              - id: 0
-                                name: string
-                                thumbnail: string
-                                isProfilePublic: true
-                      - id: 202
-                        content: 別の方からのスレッドコメント！！
+                      - id: 2
+                        content: スレッドのコメントを投稿しています
                         attachedFiles:
                           - id: 0
                             fileType: string
@@ -939,14 +925,18 @@ paths:
                         updatedAt: '2019-08-24T14:15:22Z'
                         reactions:
                           - reaction:
-                              id: 0
-                              name: string
-                              image: string
-                            counts: 0
+                              id: 1
+                              name: smail
+                              image: "\U0001F974"
+                            counts: 2
                             profiles:
-                              - id: 0
-                                name: string
-                                thumbnail: string
+                              - id: 10
+                                name: testUser
+                                thumbnail: 'https://picsum.photos/536/354'
+                                isProfilePublic: true
+                              - id: 11
+                                name: 山田さん
+                                thumbnail: 'https://picsum.photos/536/354'
                                 isProfilePublic: true
                     nextCursor: string
       operationId: get-channel_comments-id-thread-comments
