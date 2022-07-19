@@ -1,6 +1,6 @@
 openapi: 3.0.2
 x-stoplight:
-  id: 7kogg5hiht4jz
+  id: 2id7v8i726b6l
 info:
   title: shriken_openapi
   version: '1.0'
@@ -490,10 +490,7 @@ paths:
                                 name: 山岡さん
                                 thumbnail: 'https://picsum.photos/id/870/200/300?grayscale&blur=2'
                                 isProfilePublic: true
-                        threadInfo:
-                          profiles: []
-                          commentCount: 0
-                          lastCommentDateTime: ''
+                        threadInfo: null
                       - id: 4
                         content: "初めまして、山岡です。よろしくお願いいたします\U0001F64F"
                         attachedFiles:
@@ -589,6 +586,66 @@ paths:
                               isProfilePublic: true
                           commentCount: 2
                           lastCommentDateTime: '2019-08-24T14:15:22Z'
+                      - id: 6
+                        content: 酵素とは、生体で起こる化学反応に対して触媒として機能する分子である。酵素によって触媒される反応を“酵素的”反応という。
+                        attachedFiles:
+                          - id: 1
+                            fileType: image/png
+                            url: 'https://picsum.photos/200/300'
+                            isDeleted: true
+                            deletedAt: '2019-08-24T14:15:22Z'
+                            createdAt: '2019-08-24T14:15:22Z'
+                        profile:
+                          id: 201
+                          name: やまかわ
+                          thumbnail: 'https://picsum.photos/id/870/200/300?grayscale&blur=2'
+                          isProfilePublic: true
+                        isRead: true
+                        isDeleted: false
+                        deletedAt: '2019-08-24T14:15:22Z'
+                        createdAt: '2019-08-24T14:15:22Z'
+                        updatedAt: '2019-08-24T14:15:22Z'
+                        reactions:
+                          - reaction:
+                              id: 1
+                              name: smail
+                              image: "\U0001F974"
+                            counts: 2
+                            profiles:
+                              - id: 10
+                                name: testUser
+                                thumbnail: 'https://picsum.photos/536/354'
+                                isProfilePublic: true
+                              - id: 11
+                                name: 山田さん
+                                thumbnail: 'https://picsum.photos/536/354'
+                                isProfilePublic: true
+                        threadInfo:
+                          profiles:
+                            - id: 2
+                              name: test_user2
+                              thumbnail: 'https://picsum.photos/seed/picsum/200/300'
+                              isProfilePublic: true
+                            - id: 3
+                              name: test_user3
+                              thumbnail: 'https://picsum.photos/id/1005/200/300'
+                              isProfilePublic: true
+                          commentCount: 2
+                          lastCommentDateTime: '2019-08-24T14:15:22Z'
+                      - id: 7
+                        content: 酵素は生物が物質を消化する段階から吸収・輸送・代謝・排泄に至るまでのあらゆる過程に関与しており、生体が物質を変化させて利用するのに欠かせない。したがって、酵素は生化学研究における一大分野であり、早い段階から研究対象になっている。多くの酵素は生体内で作り出されるタンパク質を基にして構成されている。したがって、生体内での生成や分布の特性、熱や pH によって変性して活性を失う（失活）といった特性などは、他のタンパク質と同様である。
+                        attachedFiles: []
+                        profile:
+                          id: 202
+                          name: yamada
+                          thumbnail: 'https://picsum.photos/id/870/200/300?grayscale&blur=2'
+                          isProfilePublic: true
+                        isRead: true
+                        isDeleted: false
+                        deletedAt: '2019-08-24T14:15:22Z'
+                        createdAt: '2019-08-24T14:15:22Z'
+                        updatedAt: '2019-08-24T14:15:22Z'
+                        threadInfo: null
                     nextCursor: string
       operationId: get-channels-id-channel_comments
       tags:
@@ -819,23 +876,24 @@ paths:
                       createdAt: '2019-08-24T14:15:22Z'
                       updatedAt: '2019-08-24T14:15:22Z'
                       reactions:
-                        - image: string
-                          counts: 0
+                        - reaction:
+                            id: 1
+                            name: smail
+                            image: "\U0001F974"
+                          counts: 2
                           profiles:
-                            - id: 0
-                              name: string
-                              thumbnail: string
+                            - id: 10
+                              name: testUser
+                              thumbnail: 'https://picsum.photos/536/354'
+                              isProfilePublic: true
+                            - id: 11
+                              name: 山田さん
+                              thumbnail: 'https://picsum.photos/536/354'
                               isProfilePublic: true
                     threadComments:
-                      - id: 201
-                        content: スレッドのコメントです！
-                        attachedFiles:
-                          - id: 0
-                            fileType: string
-                            url: string
-                            isDeleted: true
-                            deletedAt: string
-                            createdAt: string
+                      - id: 1
+                        content: スレッドのコメントです
+                        attachedFiles: []
                         profile:
                           id: 2
                           name: test_user2
@@ -846,19 +904,8 @@ paths:
                         deletedAt: '2019-08-24T14:15:22Z'
                         createdAt: '2019-08-24T14:15:22Z'
                         updatedAt: '2019-08-24T14:15:22Z'
-                        reactions:
-                          - reaction:
-                              id: 0
-                              name: string
-                              image: string
-                            counts: 0
-                            profiles:
-                              - id: 0
-                                name: string
-                                thumbnail: string
-                                isProfilePublic: true
-                      - id: 202
-                        content: 別の方からのスレッドコメント！！
+                      - id: 2
+                        content: スレッドのコメントを投稿しています
                         attachedFiles:
                           - id: 0
                             fileType: string
@@ -878,14 +925,18 @@ paths:
                         updatedAt: '2019-08-24T14:15:22Z'
                         reactions:
                           - reaction:
-                              id: 0
-                              name: string
-                              image: string
-                            counts: 0
+                              id: 1
+                              name: smail
+                              image: "\U0001F974"
+                            counts: 2
                             profiles:
-                              - id: 0
-                                name: string
-                                thumbnail: string
+                              - id: 10
+                                name: testUser
+                                thumbnail: 'https://picsum.photos/536/354'
+                                isProfilePublic: true
+                              - id: 11
+                                name: 山田さん
+                                thumbnail: 'https://picsum.photos/536/354'
                                 isProfilePublic: true
                     nextCursor: string
       operationId: get-channel_comments-id-thread-comments
