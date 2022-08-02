@@ -1,6 +1,6 @@
 openapi: 3.0.2
 x-stoplight:
-  id: 2id7v8i726b6l
+  id: 6vqvkrcgatomw
 info:
   title: shriken_openapi
   version: '1.0'
@@ -843,8 +843,6 @@ paths:
               schema:
                 type: object
                 properties:
-                  originalComment:
-                    $ref: '#/components/schemas/ChannelComment'
                   threadComments:
                     type: array
                     items:
@@ -855,41 +853,6 @@ paths:
               examples:
                 my-example:
                   value:
-                    originalComment:
-                      id: 1
-                      content: test!!!
-                      attachedFiles:
-                        - id: 0
-                          fileType: string
-                          url: string
-                          isDeleted: true
-                          deletedAt: string
-                          createdAt: string
-                      profile:
-                        id: 1
-                        name: test_user
-                        thumbnail: 'https://picsum.photos/id/237/200/300'
-                        isProfilePublic: true
-                      isRead: true
-                      isDeleted: false
-                      deletedAt: '2019-08-24T14:15:22Z'
-                      createdAt: '2019-08-24T14:15:22Z'
-                      updatedAt: '2019-08-24T14:15:22Z'
-                      reactions:
-                        - reaction:
-                            id: 1
-                            name: smail
-                            image: "\U0001F974"
-                          counts: 2
-                          profiles:
-                            - id: 10
-                              name: testUser
-                              thumbnail: 'https://picsum.photos/536/354'
-                              isProfilePublic: true
-                            - id: 11
-                              name: 山田さん
-                              thumbnail: 'https://picsum.photos/536/354'
-                              isProfilePublic: true
                     threadComments:
                       - id: 1
                         content: スレッドのコメントです
@@ -1381,10 +1344,13 @@ components:
       properties:
         id:
           type: integer
+        commentId:
+          type: integer
         content:
           type: string
         attachedFiles:
           type: array
+          nullable: true
           items:
             $ref: '#/components/schemas/AttachedFile'
         profile:
