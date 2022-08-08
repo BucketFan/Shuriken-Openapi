@@ -837,7 +837,7 @@ paths:
         - channel_comment
       responses:
         '200':
-          description: nextCursorでページネーションすると、threadCommentsの要素が変わる。originalCommentは基本変わらない。またスレッドのコメントのため、ChannelCommentにあるthreadInfoは返ってこない
+          description: threadCommentsにカーソル概念はない。全量取得
           content:
             application/json:
               schema:
@@ -847,9 +847,6 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/ChannelComment'
-                  nextCursor:
-                    type: string
-                    nullable: true
               examples:
                 my-example:
                   value:
@@ -903,12 +900,7 @@ paths:
                                 isProfilePublic: true
                     nextCursor: string
       operationId: get-channel_comments-id-thread-comments
-      parameters:
-        - schema:
-            type: string
-          in: query
-          name: cursor
-          description: ページネーション用
+      parameters: []
       description: スレッドのコメント一覧取得API
   '/channel_comments/{id}/reaction':
     parameters:
