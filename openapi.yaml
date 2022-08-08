@@ -1000,7 +1000,7 @@ paths:
       operationId: patch-channel_comments-id-read
       responses:
         '200':
-          description: 指定したチャンネルコメントIDのChannelCommnetモデルを
+          description: 指定したチャンネルコメントIDのChannelCommnetモデルを全て返す。また、クラブとチャンネルの未読数データも返す
           content:
             application/json:
               schema:
@@ -1010,6 +1010,14 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/ChannelComment'
+                  clubsUnReadCount:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/UnReadCount'
+                  channelsUnReadCount:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/UnReadCount'
               examples:
                 my-example:
                   value:
@@ -1438,3 +1446,13 @@ components:
           type: string
           description: 'imageがhttp://では始まってる場合は、URL。始まってない場合は、文字コード'
       description: ''
+    UnReadCount:
+      title: UnReadCount
+      x-stoplight:
+        id: ef9wxypzvn69g
+      type: object
+      properties:
+        id:
+          type: integer
+        unReadCount:
+          type: integer
