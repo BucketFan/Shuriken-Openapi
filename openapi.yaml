@@ -1000,16 +1000,12 @@ paths:
       operationId: patch-channel_comments-id-read
       responses:
         '200':
-          description: 指定したチャンネルコメントIDのChannelCommnetモデルを全て返す。また、クラブとチャンネルの未読数データも返す
+          description: 指定したチャンネルコメントIDのChannelCommnetモデルの配列は返さない。クラブとチャンネルの未読数データを返す
           content:
             application/json:
               schema:
                 type: object
                 properties:
-                  channelComments:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/ChannelComment'
                   clubsUnReadCount:
                     type: array
                     items:
