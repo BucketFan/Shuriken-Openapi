@@ -1342,6 +1342,9 @@ components:
           type: integer
         channelId:
           type: integer
+        parentCommentId:
+          type: integer
+          nullable: true
         content:
           type: string
         attachedFiles:
