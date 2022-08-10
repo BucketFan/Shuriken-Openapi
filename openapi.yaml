@@ -345,9 +345,6 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/ChannelComment'
-                  nextCursor:
-                    type: string
-                    nullable: true
               examples:
                 my-example:
                   value:
