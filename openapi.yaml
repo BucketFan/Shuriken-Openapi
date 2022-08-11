@@ -812,6 +812,15 @@ paths:
               properties:
                 content:
                   type: string
+                files:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      url:
+                        type: string
+                      contentType:
+                        type: string
         description: ''
     delete:
       summary: delete channel comment
@@ -819,6 +828,13 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  channelComment:
+                    $ref: '#/components/schemas/ChannelComment'
       tags:
         - channel_comment
   '/channel_comments/{id}/thread_comments':
