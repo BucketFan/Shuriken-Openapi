@@ -1267,6 +1267,8 @@ paths:
             schema:
               type: object
               properties:
+                channelId:
+                  type: integer
                 fileName:
                   type: string
                 contentType:
