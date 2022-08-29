@@ -1440,6 +1440,10 @@ components:
         id: 1v12o75wh6474
       type: object
       properties:
+        channelId:
+          type: integer
+        commentId:
+          type: integer
         reaction:
           $ref: '#/components/schemas/Reaction'
         profiles:
