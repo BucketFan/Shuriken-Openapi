@@ -1337,6 +1337,8 @@ components:
           type: boolean
         unReadCount:
           type: integer
+        totalCommentsCount:
+          type: integer
         myProfile:
           $ref: '#/components/schemas/Profile'
         plans:
