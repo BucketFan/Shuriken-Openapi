@@ -1022,11 +1022,11 @@ paths:
                   clubsUnReadCount:
                     type: array
                     items:
-                      $ref: '#/components/schemas/UnReadCount'
-                  channelsUnReadCount:
+                      $ref: '#/components/schemas/ClubUnReadCount'
+                  channelsUnReadAndCommentCount:
                     type: array
                     items:
-                      $ref: '#/components/schemas/UnReadCount'
+                      $ref: '#/components/schemas/ChannelUnReadAndCommentCount'
               examples:
                 my-example:
                   value:
@@ -1337,7 +1337,7 @@ components:
           type: boolean
         unReadCount:
           type: integer
-        totalCommentsCount:
+        commentsCount:
           type: integer
         myProfile:
           $ref: '#/components/schemas/Profile'
@@ -1468,13 +1468,25 @@ components:
           type: string
           description: 'imageがhttp://では始まってる場合は、URL。始まってない場合は、文字コード'
       description: ''
-    UnReadCount:
-      title: UnReadCount
+    ClubUnReadCount:
+      title: ClubUnReadCount
       x-stoplight:
         id: ef9wxypzvn69g
       type: object
       properties:
-        id:
+        clubId:
           type: integer
         unReadCount:
+          type: integer
+    ChannelUnReadAndCommentCount:
+      title: ChannelUnReadAndCommentsCount
+      x-stoplight:
+        id: 7t9mo5zhuljzn
+      type: object
+      properties:
+        channelId:
+          type: integer
+        unReadCount:
+          type: integer
+        commentsCount:
           type: integer
