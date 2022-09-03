@@ -1419,6 +1419,9 @@ components:
           nullable: true
         isProfilePublic:
           type: boolean
+        type:
+          type: string
+          description: 'member,owner,admin,operator,botの５つが候補'
     AttachedFile:
       title: AttachedFile
       x-stoplight:
