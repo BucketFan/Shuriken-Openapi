@@ -1301,6 +1301,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Plan'
+        isOwner:
+          type: boolean
         unReadCount:
           type: integer
     Plan:
