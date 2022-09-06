@@ -1280,6 +1280,27 @@ paths:
                   description: text/plain
         description: contentTypeは無くても良いといえば良いのですが、s3に登録する際のmetadataとして登録します。
     parameters: []
+  /push_device:
+    post:
+      summary: Push Device Register
+      operationId: post-push_device
+      responses:
+        '200':
+          description: レスポンスは何も返さない。制御側は、ステータスコードで判断。
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+      description: Web Push用のTokenを登録する
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                messageToken:
+                  type: string
 components:
   schemas:
     Club:
