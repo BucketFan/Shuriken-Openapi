@@ -1280,7 +1280,7 @@ paths:
                   description: text/plain
         description: contentTypeは無くても良いといえば良いのですが、s3に登録する際のmetadataとして登録します。
     parameters: []
-  /push_device:
+  /push_token:
     post:
       summary: Push Device Register
       operationId: post-push_device
