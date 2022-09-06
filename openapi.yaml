@@ -667,6 +667,8 @@ paths:
                 properties:
                   channelComment:
                     $ref: '#/components/schemas/ChannelComment'
+                  parentThreadInfo:
+                    $ref: '#/components/schemas/ThreadInfo'
               examples:
                 my-example:
                   value:
@@ -835,6 +837,8 @@ paths:
                 properties:
                   channelComment:
                     $ref: '#/components/schemas/ChannelComment'
+                  parentThreadInfo:
+                    $ref: '#/components/schemas/ThreadInfo'
       tags:
         - channel_comment
   '/channel_comments/{id}/thread_comments':
@@ -1394,18 +1398,7 @@ components:
           items:
             $ref: '#/components/schemas/CommentReaction'
         threadInfo:
-          type: object
-          nullable: true
-          properties:
-            profiles:
-              type: array
-              items:
-                $ref: '#/components/schemas/Profile'
-            commentCount:
-              type: integer
-            lastCommentDateTime:
-              type: string
-              format: date-time
+          $ref: '#/components/schemas/ThreadInfo'
     Profile:
       title: Profile
       x-stoplight:
@@ -1495,3 +1488,19 @@ components:
           type: integer
         commentsCount:
           type: integer
+    ThreadInfo:
+      title: ThreadInfo
+      x-stoplight:
+        id: i51tp6mv79lr8
+      type: object
+      nullable: true
+      properties:
+        profiles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Profile'
+        commentCount:
+          type: integer
+        lastCommentDateTime:
+          type: string
+          format: date-time
