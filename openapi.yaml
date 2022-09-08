@@ -1023,14 +1023,10 @@ paths:
               schema:
                 type: object
                 properties:
-                  clubsUnReadCount:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/ClubUnReadCount'
-                  channelsUnReadAndCommentCount:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/ChannelUnReadAndCommentCount'
+                  clubUnReadCount:
+                    $ref: '#/components/schemas/ClubUnReadCount'
+                  channelUnReadAndCommentCount:
+                    $ref: '#/components/schemas/ChannelUnReadAndCommentCount'
               examples:
                 my-example:
                   value:
