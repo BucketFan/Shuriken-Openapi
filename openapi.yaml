@@ -213,8 +213,22 @@ paths:
                     $ref: '#/components/schemas/ClubUnReadCount'
                   channelUnReadAndCommentCount:
                     $ref: '#/components/schemas/ChannelUnReadAndCommentCount'
-      operationId: get-channels-id-read
+      operationId: channels-comment-bulk-read
       description: 'チャンネル一括既読API。{id}はchannelID'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                comment_id:
+                  type: integer
+        description: |-
+          チャンネルに表示されているコメントの最後のcommentID
+
+          もしくは、
+
+          スレッドコメントのID
   '/channels/{id}/name':
     parameters:
       - schema:
