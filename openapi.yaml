@@ -199,7 +199,7 @@ paths:
         in: path
         required: true
     patch:
-      summary: Your GET endpoint
+      summary: Bulk Update channel comment read
       tags: []
       responses:
         '200':
