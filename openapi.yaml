@@ -191,6 +191,30 @@ paths:
                 - description
                 - planIds
         description: ''
+  '/channels/{id}/read':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    patch:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: クラブとチャンネルの未読数データを返す
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  clubUnReadCount:
+                    $ref: '#/components/schemas/ClubUnReadCount'
+                  channelUnReadAndCommentCount:
+                    $ref: '#/components/schemas/ChannelUnReadAndCommentCount'
+      operationId: get-channels-id-read
+      description: 'チャンネル一括既読API。{id}はchannelID'
   '/channels/{id}/name':
     parameters:
       - schema:
