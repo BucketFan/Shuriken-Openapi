@@ -1487,6 +1487,9 @@ components:
           type: integer
         commentId:
           type: integer
+        parentCommentId:
+          type: integer
+          nullable: true
         reaction:
           $ref: '#/components/schemas/Reaction'
         profiles:
