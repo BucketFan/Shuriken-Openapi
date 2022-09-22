@@ -1434,8 +1434,6 @@ components:
             $ref: '#/components/schemas/AttachedFile'
         profile:
           $ref: '#/components/schemas/Profile'
-        isRead:
-          type: boolean
         isDeleted:
           type: boolean
         deletedAt:
@@ -1501,9 +1499,6 @@ components:
           type: integer
         commentId:
           type: integer
-        parentCommentId:
-          type: integer
-          nullable: true
         reaction:
           $ref: '#/components/schemas/Reaction'
         profiles:
