@@ -1335,6 +1335,24 @@ paths:
               properties:
                 messageToken:
                   type: string
+  /my_reactions:
+    get:
+      summary: 最近使った絵文字（使った回数が多い絵文字）を返却するAPI
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  reactions:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Reaction'
+      operationId: get-my_reactions
+      description: 使った回数順に返す。同じ回数使った絵文字なら、最近使った絵文字順に最大３２個の絵文字を返す。
 components:
   schemas:
     Club:
