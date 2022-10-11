@@ -1488,6 +1488,8 @@ components:
         type:
           type: string
           description: 'member,owner,admin,operator,botの５つが候補'
+        profileUrl:
+          type: string
     AttachedFile:
       title: AttachedFile
       x-stoplight:
