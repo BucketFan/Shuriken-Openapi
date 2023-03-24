@@ -287,7 +287,7 @@ paths:
         required: true
     patch:
       summary: update channel plans
-      operationId: patch-channels-id-name
+      operationId: patch-channels-id-plans
       responses:
         '200':
           description: OK
@@ -1097,54 +1097,6 @@ paths:
                           name: スタンダードプラン
                       updatedAt: '2022-06-07T14:59:43+09:00'
                       unReadCount: 0
-        '':
-          description: リクエストボディで、指定したCommentIDのすべてを既読にしたコメント一覧を返す
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/ChannelComment'
-              examples:
-                example-1:
-                  value:
-                    - id: 0
-                      content: string
-                      attachedFiles:
-                        - id: 0
-                          fileType: string
-                          url: string
-                          isDeleted: true
-                          deletedAt: string
-                          createdAt: string
-                      profile:
-                        id: 0
-                        name: string
-                        thumbnail: string
-                        isProfilePublic: true
-                      isRead: true
-                      isDeleted: true
-                      deletedAt: '2019-08-24T14:15:22Z'
-                      createdAt: '2019-08-24T14:15:22Z'
-                      updatedAt: '2019-08-24T14:15:22Z'
-                      reactions:
-                        - reaction:
-                            id: 0
-                            name: string
-                            image: string
-                          profiles:
-                            - id: 0
-                              name: string
-                              thumbnail: string
-                              isProfilePublic: true
-                      threadInfo:
-                        profiles:
-                          - id: 0
-                            name: string
-                            thumbnail: string
-                            isProfilePublic: true
-                        commentCount: 0
-                        lastCommentDateTime: '2019-08-24T14:15:22Z'
       description: |
         リクエストボディで、指定したCommentIDの一覧を既読するAPI
       tags:
