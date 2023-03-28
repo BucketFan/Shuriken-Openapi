@@ -1365,10 +1365,6 @@ components:
           type: string
         description:
           type: string
-        isOwner:
-          type: boolean
-        isJoinAsUser:
-          type: boolean
         unReadCount:
           type: integer
         commentsCount:
