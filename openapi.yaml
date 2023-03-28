@@ -136,7 +136,7 @@ paths:
                             name: スタンダードプラン
                         updatedAt: '2022-06-07T14:59:57+09:00'
                         unReadCount: 1
-      operationId: get-clubs-id
+      operationId: get-clubs-id-channels
       description: クラブに紐付いているチャネル一覧を取得する
   /channels:
     post:
@@ -685,7 +685,7 @@ paths:
                         updatedAt: '2019-08-24T14:15:22Z'
                         threadInfo: null
                     nextCursor: string
-      operationId: get-channels-id-channel_comments
+      operationId: get-channels-id-comments
       tags:
         - channel_comment
       parameters:
