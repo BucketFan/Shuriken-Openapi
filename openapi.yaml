@@ -1527,7 +1527,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Profile'
-        commentCount:
+        commentsCount:
           type: integer
         lastCommentDateTime:
           type: string
