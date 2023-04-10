@@ -222,7 +222,7 @@ paths:
             schema:
               type: object
               properties:
-                comment_id:
+                commentId:
                   type: integer
         description: |-
           チャンネルに表示されているコメントの最後のcommentID
