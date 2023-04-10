@@ -213,7 +213,7 @@ paths:
                     $ref: '#/components/schemas/ClubUnReadCount'
                   channelUnReadAndCommentCount:
                     $ref: '#/components/schemas/ChannelUnReadAndCommentCount'
-      operationId: channels-comment-bulk-read
+      operationId: patch-channels-id-bulk-read
       description: 'チャンネル一括既読API。{id}はchannelID'
       requestBody:
         content:
@@ -340,7 +340,7 @@ paths:
         in: path
         required: true
     post:
-      summary: ''
+      summary: notify typing
       operationId: post-channels-id-typing
       responses:
         '200':
