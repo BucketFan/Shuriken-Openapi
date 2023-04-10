@@ -212,7 +212,7 @@ paths:
                 properties:
                   clubUnReadCount:
                     $ref: '#/components/schemas/ClubUnReadCount'
-                  channelUnReadAndCommentCount:
+                  channelUnReadAndCommentsCount:
                     $ref: '#/components/schemas/ChannelUnReadAndCommentCount'
       operationId: patch-channels-id-bulk-read
       description: 'チャンネル一括既読API。{id}はchannelID'
