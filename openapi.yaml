@@ -200,7 +200,8 @@ paths:
         required: true
     patch:
       summary: Bulk Update channel comment read
-      tags: []
+      tags:
+        - channel
       responses:
         '200':
           description: クラブとチャンネルの未読数データを返す
@@ -1293,7 +1294,8 @@ paths:
   /my_reactions:
     get:
       summary: 最近使った絵文字（使った回数が多い絵文字）を返却するAPI
-      tags: []
+      tags:
+        - reaction
       responses:
         '200':
           description: OK
