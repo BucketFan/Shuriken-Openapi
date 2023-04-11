@@ -185,7 +185,7 @@ paths:
                 planIds:
                   type: array
                   items:
-                    type: number
+                    type: integer
               required:
                 - name
                 - description
