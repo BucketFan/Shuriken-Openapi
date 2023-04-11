@@ -316,7 +316,7 @@ paths:
                 planIds:
                   type: array
                   items:
-                    type: number
+                    type: integer
                 isAttachAllPlans:
                   type: boolean
         description: リクエストBodyパラメータのisAttachAllPlansは、「有料プラン全てを対象にする」のフラグ。現在、作られてないプランでも、作られた時に自動的にチャンネル紐づく。
