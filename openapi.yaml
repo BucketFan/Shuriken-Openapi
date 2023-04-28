@@ -138,6 +138,22 @@ paths:
                         unReadCount: 1
       operationId: get-clubs-id-channels
       description: クラブに紐付いているチャネル一覧を取得する
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: cursor
+          description: 次のchannelId
+        - schema:
+            type: string
+          in: query
+          name: size
+          description: 取得件数
+        - schema:
+            type: string
+          in: query
+          name: order
+          description: 'ASC, DESC. デフォルトはDESC'
   /channels:
     post:
       summary: create channel
