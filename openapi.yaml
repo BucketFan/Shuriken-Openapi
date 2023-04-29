@@ -143,12 +143,12 @@ paths:
             type: string
           in: query
           name: cursor
-          description: SQLで言うところのOffset
+          description: 次のchannelId
         - schema:
             type: string
           in: query
           name: size
-          description: 取得件数(limit)
+          description: 取得件数
         - schema:
             type: string
           in: query
