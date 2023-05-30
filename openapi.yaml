@@ -1555,6 +1555,11 @@ components:
           type: integer
         clubId:
           type: integer
+      required:
+        - channelId
+        - unReadCount
+        - commentsCount
+        - clubId
     ThreadInfo:
       title: ThreadInfo
       x-stoplight:
