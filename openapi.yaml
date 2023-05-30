@@ -1553,6 +1553,8 @@ components:
           type: integer
         commentsCount:
           type: integer
+        clubId:
+          type: integer
     ThreadInfo:
       title: ThreadInfo
       x-stoplight:
