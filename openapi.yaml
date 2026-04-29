@@ -809,6 +809,11 @@ paths:
                       contentType:
                         type: string
                         description: text/plain
+                chatbotId:
+                  type: integer
+                  format: int64
+                  nullable: true
+                  description: bot投稿時に指定するbotのID。指定時はprofile_id=NULL・bot_id=chatbotIdでINSERTされる。
         description: ''
       description: 投稿するテキスト、ファイルを登録する。
   '/channel_comments/{id}':
